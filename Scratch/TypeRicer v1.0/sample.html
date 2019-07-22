@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="jquery-3.4.1.js"></script>
+        <script src="functions.js"></script>
+        <style>
+            #error {
+                color: red;
+            }
+            #goal {
+                height: 100px;
+            }
+            #stat {
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body onload="init()">
+        <textarea id="goal" rows="10" cols="50"></textarea><br><br>
+        <textarea id="text" rows="10" cols="50"></textarea>
+        <p id="error">Wrong input!</p>
+        <div id="stat">
+            <span id="wpm"></span><br>
+            <span id="acc"></span>
+        </div>
+        <button type="button" id="random" onclick="randomize()">Randomize</button>
+    </body>
+</html>
