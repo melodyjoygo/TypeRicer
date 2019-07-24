@@ -41,5 +41,15 @@ app.get("/", function(req,res){
 
 });
 
+function addUser(name, wpm, time){
 
+    connection.query("INSERT INTO 'typericer'.'users' ('idusers', 'username', 'wpm','time') VALUES (" + id + "," + name +", "+wpm+"," + time+")", function(error){
+        if(!!error){
+            console.log("Failed to insert data");
+        }
+        else{
+            console.log("Added to database");
+        }
+    });
+}
 app.listen(1337);
