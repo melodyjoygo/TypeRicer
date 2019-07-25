@@ -1,5 +1,5 @@
-var text = '', input = '', temp = '';
-var size, counter = 0, error = 0, start, end, begin = false;
+var text, input, temp;
+var size, counter, error, start, end, begin;
 var list = ["The growth of commercial agriculture which began with the tobacco monopoly was greatly accelerated by the rising demands of other exports products. Not only that, the Philippines economy growth also increase their foreign trade as well.",
             "On the other hand, this led to a social changes in Philippines where some Filipinos were able to get a proper education and some others were able to raise their capitals, becoming rich, and this was the time where the Filipinos realized that they are not inferior to the Spaniards.",
             "From this point onwards, the educated Filipinos were beginning to express reactions to the criticism of colonial arrangements. They realized they need to be independent from the things that have been hindering them from moving forwards such as their moral backwardness and the fact that their religious beliefs are still confined in practice only without any deeper meaning to it.",
@@ -91,6 +91,12 @@ function getAccuracy() {
 }
 
 function randomize() {
+    counter = 0;
+    error = 0;
+    begin = false;
+    text = '';
+    temp = '';
+    input = '';
     while(temp == text) {
         text = list[Math.floor(Math.random() * list.length)]
         if(temp != text) {

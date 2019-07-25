@@ -17,7 +17,7 @@ document.addEventListener('keypress', function(e) {
     if(e.keyCode == 13) {
         e.preventDefault();
     }
-    if(words[words.length - 1].charCodeAt([words[words.length - 1].length - 1]) == e.keyCode && counter+1 == words.length) {
+    if(counter+1 == words.length && words[words.length - 1].charCodeAt([words[words.length - 1].length - 1]) == e.keyCode) {
         $('form input[type="text"]').prop("disabled", true);
         e.preventDefault();
         $("#text").val('');
@@ -68,7 +68,7 @@ function finish() {
 }
 
 function highlight(str) {
-    
+    $("#goal").mark(str);
 }
 
 function getTime(num) {
