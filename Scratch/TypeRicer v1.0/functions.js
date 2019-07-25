@@ -14,6 +14,9 @@ document.addEventListener('keypress', function(e) {
         begin = true;
         start = Date.now();
     }
+    if(e.keyCode == 13) {
+        e.preventDefault();
+    }
     if(words[words.length - 1].charCodeAt([words[words.length - 1].length - 1]) == e.keyCode && counter+1 == words.length) {
         $('form input[type="text"]').prop("disabled", true);
         e.preventDefault();

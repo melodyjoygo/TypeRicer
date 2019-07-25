@@ -22,6 +22,9 @@ document.addEventListener('keypress', function(e) {
         begin = true;
         start = Date.now();
     }
+    if(e.keyCode == 13) {
+        e.preventDefault();
+    }
     if(e.keyCode == text.charCodeAt(counter)) {
         input += e.key;
         counter++;
