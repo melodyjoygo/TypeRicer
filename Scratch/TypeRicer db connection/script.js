@@ -41,9 +41,25 @@ app.get("/", function(req,res){
 
 });
 
-function addUser(name, wpm, time){
+function addUser(name,password, wpm, time){
 
-    connection.query("INSERT INTO 'typericer'.'users' ('idusers', 'username', 'wpm','time') VALUES (" + id + "," + name +", "+wpm+"," + time+")", function(error){
+    var ctr = connection.query("SELECT COUNT(idusers) FROM users")+1 ;
+
+    connection.query("INSERT INTO 'typericer'.'users' ('idusers', 'username', 'password','wpm','time') VALUES (" + ctr + "," + name +", "+ password +","+wpm+"," + time + ")", function(error){
+        if(!!error){
+            console.log("Failed to insert data");
+        }
+        else{
+            console.log("Added to database");
+        }
+    });
+}
+
+function addSession(userid, wpm, time){
+
+    var ctr = connection.query("SELECT COUNT(idsessions) FROM sessions") +1;
+
+    connection.query("INSERT INTO 'typericer'.'sessions' ('idsessions', 'userID', 'wpm','time') VALUES (" + ctr + "," + userid +", "+wpm+"," + time+")", function(error){
         if(!!error){
             console.log("Failed to insert data");
         }
