@@ -1,3 +1,0 @@
-v1.0 - Easy (checks per word)
-v1.1 - Medium (checks per character)
-v1.2 - Hard (letters of each word are not in order and checks per character)
