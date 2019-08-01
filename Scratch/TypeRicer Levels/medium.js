@@ -1,5 +1,5 @@
 var text, temp, time, timer, words;
-var size, counter, error;
+var size, counter, error, count;
 var list = ["The growth of commercial agriculture which began with the tobacco monopoly was greatly accelerated by the rising demands of other exports products. Not only that, the Philippines economy growth also increase their foreign trade as well.",
             "On the other hand, this led to a social changes in Philippines where some Filipinos were able to get a proper education and some others were able to raise their capitals, becoming rich, and this was the time where the Filipinos realized that they are not inferior to the Spaniards.",
             "From this point onwards, the educated Filipinos were beginning to express reactions to the criticism of colonial arrangements. They realized they need to be independent from the things that have been hindering them from moving forwards such as their moral backwardness and the fact that their religious beliefs are still confined in practice only without any deeper meaning to it.",
@@ -26,6 +26,8 @@ document.addEventListener('keypress', function(e) {
         if(e.keyCode == 32) {
             e.preventDefault();
             $("#text").val('');
+            count++;
+            marking();
         }
     } else {
         if(counter < size) {
@@ -37,6 +39,7 @@ document.addEventListener('keypress', function(e) {
     if(counter == size) {
         $('form input[type="text"]').prop("disabled", true);
         e.preventDefault();
+        $("#goal").text(text);
         $("#text").val('');
         finish();
     }
@@ -99,6 +102,22 @@ function showError() {
     });
 }
 
+function marking() {
+    var mark = document.getElementById("goal");
+    mark.innerHTML = words.join(" ");
+    var innerHTML = mark.innerHTML;
+    if(count == 0) {
+        innerHTML = "<span class='highlight'>" + innerHTML.substring(0, getIndex() + words[count].length - 1) + "</span> " + innerHTML.substring(getIndex() + words[count].length);
+    } else {
+        innerHTML = "<span class='done'>" + innerHTML.substring(0, getIndex()) + "</span><span class='highlight'>" + innerHTML.substring(getIndex(), getIndex() + words[count].length) + "</span>" + innerHTML.substring(getIndex() + words[count].length);
+    }
+    mark.innerHTML = innerHTML;
+}
+
+function getIndex() {
+    return words.slice(0, count).join(" ").length + 1;
+}
+
 function finish() {
     $("#error").text("Finished!");
     $("#error").css({
@@ -130,6 +149,7 @@ function randomize(num) {
         num = 0;
     }
     counter = 0;
+    count = 0;
     error = 0;
     time = num;
     while(temp == text) {
@@ -141,6 +161,7 @@ function randomize(num) {
     }
     temp = text;
     words = $.trim($("#goal").text()).split(" ");
+    marking();
     $('form input[type="text"]').prop("disabled", false);
     $("#time").text("00:00");
     $("#time").css({'visibility':'visible'});

@@ -7,17 +7,19 @@ var list = ["The growth of commercial agriculture which began with the tobacco m
             "However, these improvements could not be achieved through peaceful means. There must be a revolution.",
             "Although most of the Filipinos were remain loyal to the Spaniards, the Spaniards realized that they couldn't stay hidden inside the wall of Intramuros any longer.",
             "Short story, the Spaniards were able to recover the Philippines."];
-var instance;
 
 document.addEventListener('keypress', function(e) {
     if(e.keyCode == 13) {
         e.preventDefault();
     }
-    if(counter+1 == words.length && words[words.length - 1].charCodeAt([words[words.length - 1].length - 1]) == e.keyCode) {
-        $('form input[type="text"]').prop("disabled", true);
-        e.preventDefault();
-        $("#text").val('');
-        finish();
+    if(getIndex() + words[counter].length == size) {
+        if(words[counter].substring(0, words[counter].length - 1) == $("#text").val().substring(0, words[counter].length) && words[words.length - 1].charCodeAt([words[words.length - 1].length - 1]) == e.keyCode) {
+			$('form input[type="text"]').prop("disabled", true);
+            e.preventDefault();
+            $("#text").val('');
+            $("#goal").text(text);
+            finish();
+        }
     }
     if(e.keyCode == 32) {
         if(words[counter] == $("#text").val()) {
@@ -29,8 +31,8 @@ document.addEventListener('keypress', function(e) {
             error++;
             showError();
         }
+        marking();
     }
-    marking();
 })
 
 function start() {
@@ -91,12 +93,19 @@ function showError() {
 }
 
 function marking() {
-    instance.unmark();
-    instance.mark(words[counter], {
-        filter: function(a, b, c, d) {
-            
-        }
-    });
+    var mark = document.getElementById("goal");
+    mark.innerHTML = words.join(" ");
+    var innerHTML = mark.innerHTML;
+    if(counter == 0) {
+        innerHTML = "<span class='highlight'>" + innerHTML.substring(0, getIndex() + words[counter].length - 1) + "</span> " + innerHTML.substring(getIndex() + words[counter].length);
+    } else {
+        innerHTML = "<span class='done'>" + innerHTML.substring(0, getIndex()) + "</span><span class='highlight'>" + innerHTML.substring(getIndex(), getIndex() + words[counter].length) + "</span>" + innerHTML.substring(getIndex() + words[counter].length);
+    }
+    mark.innerHTML = innerHTML;
+}
+
+function getIndex() {
+    return words.slice(0, counter).join(" ").length + 1;
 }
 
 function finish() {
@@ -141,7 +150,6 @@ function randomize(num) {
     }
     temp = text;
     words = $.trim($("#goal").text()).split(" ");
-    instance = new Mark(document.querySelector("#goal"));
     marking();
     $('form input[type="text"]').prop("disabled", false);
     $("#time").text("00:00");
