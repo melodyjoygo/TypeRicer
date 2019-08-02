@@ -1,0 +1,99 @@
+html,body{
+    background-color: #121212;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+@font-face {
+    font-family: "Stolzl";
+    src: url("./Stolzl_Display_Normal.otf") format("opentype");
+    }
+
+#stage{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#menu{
+    width: auto;
+    height: 125px;
+    /* left: 0px;
+    top: 50%;
+    transform: translate(0%,-50%); */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #BB86FC; */
+    border: 2px;
+    text-decoration: none;
+
+}
+
+#menuText{
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Stolzl';
+    font-size: 20px;
+    width: auto;
+    height: auto;
+    /* left: 0px;
+    top: 50%; */
+    transform: translate(0%,-50%) rotate(-90deg);
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    text-align:center
+}
+
+.ButtonList {
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    position: flex;
+    top: 0px;
+    padding: 0px;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    display: inline-flex;
+    background-color:transparent;
+}
+
+#menuLine{
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.38);
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#menuLineH{
+    width: 100%;
+    height: 2px;
+    background-color: #03DAC6;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#sideBar{
+    height: 100%;
+    width: 100px;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+    background-color: transparent;
+}
