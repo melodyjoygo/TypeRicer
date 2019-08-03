@@ -1,0 +1,259 @@
+html,
+body {
+    background-color: #121212;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+@font-face {
+    font-family: "Stolzl";
+    src: url("./Stolzl_Display_Normal.otf") format("opentype");
+}
+
+#stage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#center {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#menu {
+    width: auto;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px;
+    text-decoration: none;
+    margin: 10px 0px 10px 0px;
+    transform: rotate(-90deg);
+}
+
+#menuText {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Stolzl';
+    font-size: 20px;
+    width: auto;
+    height: auto;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    text-align: center
+}
+
+.ButtonList {
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    position: flex;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    display: inline-flex;
+    background-color: transparent;
+}
+
+#menuLine {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.38);
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#menuLineH {
+    width: 100%;
+    height: 2px;
+    background-color: #03DAC6;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sideBar {
+    height: 100%;
+    width: 110px;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+    background-color: transparent;
+    z-index: 1;
+}
+
+#profilePic {
+    margin: 0px 0px 10px 0px;
+}
+
+#username{
+    height: auto;
+    width: auto;
+    position: relative;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,-20%);
+    text-align: center;
+
+    color: white;
+    font-family: 'Stolzl';
+    font-size: 40px;
+}
+
+#difficultyList{
+    padding: 10px;
+    margin: 0px;
+    width: auto;
+    height: auto;
+    list-style: none;
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%,-35%);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#difButtons{
+    margin: 10px;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%,-30%);
+    position: flex;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+}
+
+#easy, #medium, #hard{
+    width: auto;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    left: 100%;
+    top: 30%;
+    transform: translate(-50%,-30%);
+    color: white;
+    font-family: 'Raleway';
+    font-size: 28px;
+
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0px 0px 3px 0px;
+    border-color: #03DAC6;
+}
+
+button:focus,
+input:focus {
+    outline: none;
+}
+
+#statsBox{
+    position: relative;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%,-45%);
+    border-style: solid;
+    border-width: 3px;
+    height: 150px;
+    width: 100%;
+    border-color: white;
+}
+
+#statsList{
+    list-style: none;
+    color: white;
+    font-family: 'Raleway';
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+#statsItem{
+    margin: 0px 5px 0px 5px;
+}
+
+@media all and (max-width:660px) {
+    #sideBar {
+        width: 100%;
+        height: 100px;
+    }
+
+    .ButtonList {
+        flex-direction: row;
+    }
+
+    #menuText {
+        transform: rotate(0deg);
+        flex-direction: column;
+        height: auto;
+        width: auto;
+    }
+
+    #menu {
+        height: 40px;
+        width: 125px;
+        display: inline-flex;
+        flex-direction: column;
+        transform: rotate(0deg);
+    }
+
+    #menuLine,
+    #menuLineH {
+        flex-direction: column;
+        width: 60px;
+    }
+
+    #profileText {
+        visibility: hidden;
+        padding: 0px;
+    }
+
+    #profilePic {
+        position: absolute;
+    }
+
+    #center{
+        width: 90%;
+    }
+}
