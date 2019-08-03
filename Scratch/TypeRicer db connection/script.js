@@ -55,11 +55,29 @@ function addUser(name,password, wpm, time){
     });
 }
 
-function addSession(userid, wpm, time){
+function getUsers(){
+     connection.query("SELECT * FROM users", function(error, rows, fields){
+    //callback
+    if(!!error){
+        console.log("error in the query");
+    }
+    else{
+        console.log("successful query\n");
+        //console.log(rows);
+        //parse
+        var textArray ;
+        textArray =rows;
+
+        console.log(textArray);
+    }
+});
+}
+
+function addSession(userid, wpm, accuracy, time){
 
     var ctr = connection.query("SELECT COUNT(idsessions) FROM sessions") +1;
 
-    connection.query("INSERT INTO 'typericer'.'sessions' ('idsessions', 'userID', 'wpm','time') VALUES (" + ctr + "," + userid +", "+wpm+"," + time+")", function(error){
+    connection.query("INSERT INTO 'typericer'.'sessions' ('idsessions', 'userID', 'wpm', 'accuracy','time') VALUES (" + ctr + "," + userid +", "+wpm+"," + +accuracy+","+ time+")", function(error){
         if(!!error){
             console.log("Failed to insert data");
         }
@@ -67,6 +85,24 @@ function addSession(userid, wpm, time){
             console.log("Added to database");
         }
     });
+}
+
+function getSessions(){
+    connection.query("SELECT * FROM sessions", function(error, rows, fields){
+   //callback
+   if(!!error){
+       console.log("error in the query");
+   }
+   else{
+       console.log("successful query\n");
+       //console.log(rows);
+       //parse
+       var textArray ;
+       textArray =rows;
+
+       console.log(textArray);
+   }
+});
 }
 
 function addTextRank(textid, userid, wpm, accuracy, time){
@@ -94,10 +130,24 @@ function addTextRank(textid, userid, wpm, accuracy, time){
             } 
         }); 
     }
+}
 
+function getTextRanks(){
+    connection.query("SELECT * FROM text_rank", function(error, rows, fields){
+   //callback
+   if(!!error){
+       console.log("error in the query");
+   }
+   else{
+       console.log("successful query\n");
+       //console.log(rows);
+       //parse
+       var textArray ;
+       textArray =rows;
 
-
-    
+       console.log(textArray);
+   }
+});
 }
 
 
