@@ -68,4 +68,37 @@ function addSession(userid, wpm, time){
         }
     });
 }
+
+function addTextRank(textid, userid, wpm, accuracy, time){
+
+    var check = connection.query("SELECT textid FROM text_rank WHERE userid = '"+userid+"'") ;
+    var ctr = connection.query("SELECT COUNT(idtext_rank) FROM text_rank") +1;
+
+    if(check==NULL){
+        connection.query("INSERT INTO 'typericer'.'text_rank' ('idtext_rank', 'textID','userID', 'wpm','accuracy', 'time') VALUES (" + ctr + ","+ textid +", "+ userid +", "+wpm+"," +accuracy+","+ time+")", function(error){
+            if(!!error){
+                console.log("Failed to insert data");
+            }
+            else{
+                console.log("Added to database");
+            }
+        });
+    }
+    else{
+        connection.query("UPDATE 'typericer'.'text_rank' SET 'idtext_rank' =" + ctr + ", 'textID' = "+ textid+", 'userID ' = " + userid +" 'wpm'= "+wpm+", 'accuracy'="+accuracy +", 'time'="+time+ " WHERE 'userID' =" +userid , function(error){
+            if(!!error){
+                console.log("Failed to insert data");
+            }
+            else{
+                console.log("Added to database");
+            } 
+        }); 
+    }
+
+
+
+    
+}
+
+
 app.listen(1337);
