@@ -7,10 +7,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TypeRicer | Profile</title>
 
+    <script src="/TypeRicer/jquery.js"></script>
     <link rel="stylesheet" href="ProfileStyle.css">
+    <script src="/TypeRicer/bootstrap.js"></script>
+    <link rel="stylesheet" href="/TypeRicer/scss/bootstrap.css">
 </head>
 
 <body>
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn btn-sm btn-danger" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                Are you sure you want to Logout?
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="button" class="form-control form-control-sm" value="Yes">
+                            </div>
+                            <div class="col">
+                                <input type="button" class="form-control form-control-sm " value="No"
+                                    data-dismiss="modal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="stage">
         <div id="sideBar">
             <ul class="ButtonList">
@@ -44,7 +78,7 @@
                 <a href="../TypeRicer/Profile.html" id="menu">
                     <li>
                         <div id="menuText">
-                            <p id="profileText">PROFILE</p>
+                            <p id="profileText" class="highlight">PROFILE</p>
                             <img src="/TypeRicer/Media/avatar.png" id="profilePic">
                             <div id="menuLineH"></div>
                         </div>
@@ -103,6 +137,13 @@
                     </li>
                 </ul>
             </div>
+            <button href="../TypeRicer/Login.html" id="menu" class="logout" data-toggle="modal" data-target="#modal">
+                <div id="menuText">
+                    <p id="profileText">Logout</p>
+                    <img src="/TypeRicer/Media/logout.png" id="profilePic">
+                    <div id="menuLine"></div>
+                </div>
+            </button>
         </div>
     </div>
 </body>

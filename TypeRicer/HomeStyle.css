@@ -55,7 +55,7 @@ body {
     position: relative;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     padding: 0px;
     margin: 0px;
     justify-content: center;
@@ -92,7 +92,7 @@ body {
     width: 100%;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     position: fixed;
     background-color: transparent;
     z-index: 1;
@@ -102,10 +102,10 @@ body {
     margin: 0px 0px 10px 0px;
 }
 
-#back{
+#back {
     height: 100%;
     width: 100%;
-    position: relative;
+    position: fixed;
     display: flex;
     color: rgba(255, 255, 255, 0.05);
     font-family: 'Stolzl';
@@ -116,7 +116,11 @@ body {
     align-content: center;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+}
+
+.highlight {
+    color: #03DAC6;
 }
 
 @media all and (max-width:700px) {

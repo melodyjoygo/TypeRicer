@@ -97,6 +97,10 @@ body {
     margin: 0px 0px 10px 0px;
 }
 
+.highlight {
+    color: #03DAC6;
+}
+
 @media all and (max-width:430px) {
     #sideBar {
         width: 100%;

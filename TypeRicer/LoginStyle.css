@@ -53,7 +53,7 @@ body {
     text-align: center;
     border-style: solid;
     border-width: 0px 0px 2px 0px;
-    padding: 20px;
+    padding: 25px;
 }
 
 #password {
@@ -73,7 +73,7 @@ body {
     text-align: center;
     border-style: solid;
     border-width: 0px 0px 2px 0px;
-    padding: 20px;
+    padding: 25px;
 }
 
 textarea:focus,
@@ -106,9 +106,9 @@ input:focus {
     display: flex;
     height: 50px;
     width: auto;
-    top: 55%;
+    /* top: 70%;
     left: 50%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -70%); */
     margin: 0px;
 
     background-color: transparent;
@@ -155,33 +155,36 @@ input:focus {
 
 #type {
     font-family: 'Stolzl';
-    color: white;
+    color: rgba(255, 255, 255, 0.2);
     top: 50%;
     left: 0%;
     transform: translate(-25%, -50%) rotate(-90deg);
     position: fixed;
-    font-size: 175px;
+    font-size: 250px;
     background-color: transparent;
 }
 
 #ricer {
     font-family: 'Stolzl';
-    color: white;
+    color: rgba(255, 255, 255, 0.2);
     top: 50%;
     right: 0%;
     transform: translate(25%, -50%) rotate(-270deg);
     position: fixed;
-    font-size: 175px;
+    font-size: 225px;
     background-color: transparent;
 
 }
 
-#aGuest{
+#aGuest {
     position: relative;
     display: flex;
-    top: 32%;
+    top: 60%;
     left: 50%;
-    transform: translate(-50%, -32%);
+    transform: translate(-50%, -60%);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
 }
 
 @media all and (max-width:1100px) {
@@ -220,7 +223,7 @@ input:focus {
         font-size: 75px;
         background-color: transparent;
     }
-    
+
     #ricer {
         width: 225px;
         height: auto;
@@ -232,45 +235,45 @@ input:focus {
         position: relative;
         font-size: 75px;
         background-color: transparent;
-    
+
     }
 
-    #center{
+    #center {
         width: 75%;
     }
 
-    #username{
+    #username {
         top: 5%;
-    left: 50%;
-    transform: translate(-50%, -5%);
+        left: 50%;
+        transform: translate(-50%, -5%);
 
     }
 
-    #password{
+    #password {
         top: 8%;
-    left: 50%;
-    transform: translate(-50%, -8%);
+        left: 50%;
+        transform: translate(-50%, -8%);
     }
 
-    #loginBtn{
+    #loginBtn {
         top: 15%;
         left: 50%;
         transform: translate(-50%, -15%);
     }
 
-    #signupBtn{
+    #signupBtn {
         top: 20%;
         left: 50%;
         transform: translate(-50%, -20%);
     }
 
-    #Line{
+    #Line {
         top: 17%;
         left: 50%;
         transform: translate(-50%, -17%);
     }
 
-    #guestBtn{
+    #guestBtn {
         top: 30%;
         left: 50%;
         transform: translate(-50%, -30%);

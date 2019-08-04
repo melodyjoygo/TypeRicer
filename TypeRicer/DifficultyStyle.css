@@ -156,7 +156,37 @@ body {
     padding: 5px;
     align-content: center;
     justify-content: center;
+    font-family: 'Open Sans';
 }
+
+#easyLevel #button:hover {
+    color: #4CAF50;
+
+}
+
+#easyLevel:hover {
+    border-color: #4CAF50;
+}
+
+#medLevel:hover {
+    border-color: #FFEB3B;
+}
+
+#medLevel #button:hover {
+    color: #FFEB3B;
+
+}
+
+#hardLevel:hover {
+    border-color: #F44336;
+}
+
+#hardLevel #button:hover {
+    color: #F44336;
+
+}
+
+
 
 #start {
     width: 150px;
@@ -174,6 +204,12 @@ body {
     color: white;
     text-align: center;
 }
+
+#start:hover {
+    border-color: #03DAC6;
+    color: #03DAC6;
+}
+
 
 #startText {
     padding: 0px;
@@ -200,7 +236,7 @@ body {
 
 #button {
     background-color: transparent;
-    font-family: 'Open Sans';
+    font-family: 'Raleway';
     font-size: 24px;
     color: #eeeeee;
     border-style: none;
@@ -217,6 +253,42 @@ input:focus {
 
 #profilePic {
     margin: 0px 0px 10px 0px;
+}
+
+#back {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    color: rgba(255, 255, 255, 0.009);
+    font-family: 'Stolzl';
+    font-size: 500px;
+    line-height: 75%;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#desc {
+    font-size: 20px;
+    color: #4CAF50;
+    /*#4CAF50 for Easy, #FFEB3B for Medium,  #F44336 for Hard*/
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -15%);
+    font-family: 'Raleway';
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.highlight {
+    color: #03DAC6;
 }
 
 @media all and (max-width:430px) {
