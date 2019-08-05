@@ -263,7 +263,7 @@ select:focus{
 
 #leaderboard, #rankedText{
     width: auto;
-    height: 50px;
+    height: auto;
     position: relative;
     display: flex;
     align-content: center;
@@ -296,6 +296,24 @@ select:focus{
     left: 50%;
     top: 15%;
     transform: translate(-50%, -15%);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    visibility: hidden;
+}
+
+#difficultyListText {
+    padding: 10px;
+    margin: 0px;
+    width: auto;
+    height: auto;
+    list-style: none;
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -30%);
     align-content: center;
     justify-content: center;
     text-align: center;
@@ -335,8 +353,57 @@ select:focus{
     border-color: white;
 }
 
+#easyText,
+#mediumText,
+#hardText {
+    width: auto;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-family: 'Raleway';
+    font-size: 28px;
+
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0px 0px 3px 0px;
+    border-color: white;
+}
+
 
 button:focus,
 input:focus {
     outline: none;
+}
+
+#sortText, #sortTextText{
+    position: relative;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    display: flex;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    color: white;
+    background-color: #121212;
+    padding: 10px;
+    border-style: solid;
+    border-width: 0px 0px 3px 0px;
+    border-color: white;
+    text-decoration: none;
+    visibility: hidden;
+
+}
+
+#sortTextText{
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+
+#sortTextText, #sortText, #difficultyListText{
+    position: absolute;
 }

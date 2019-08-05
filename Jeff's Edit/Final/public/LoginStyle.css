@@ -248,42 +248,44 @@ input:focus {
 
     #center {
         width: 75%;
+        position: absolute;
+
     }
 
     #username {
-        top: 5%;
+        top: 35%;
         left: 50%;
-        transform: translate(-50%, -5%);
+        transform: translate(-50%, -35%);
 
     }
 
     #password {
-        top: 8%;
+        top: 37%;
         left: 50%;
-        transform: translate(-50%, -8%);
+        transform: translate(-50%, -37%);
     }
 
     #loginBtn {
-        top: 15%;
+        top: 45%;
         left: 50%;
-        transform: translate(-50%, -15%);
+        transform: translate(-50%, -45%);
     }
 
     #signupBtn {
-        top: 20%;
+        top: 50%;
         left: 50%;
-        transform: translate(-50%, -20%);
+        transform: translate(-50%, -50%);
     }
 
     #Line {
-        top: 17%;
+        top: 47%;
         left: 50%;
-        transform: translate(-50%, -17%);
+        transform: translate(-50%, -47%);
     }
 
     #aGuest {
-        top: 30%;
+        top: 62%;
         left: 50%;
-        transform: translate(-50%, -30%);
+        transform: translate(-50%, -62%);
     }
 }

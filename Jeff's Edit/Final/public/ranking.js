@@ -130,24 +130,45 @@ function sort() {
 function change(num) {
     if (num == 0) {
         $("#difficultyList").css("visibility","visible");
-        
+        $("#sortTextText").css("visibility","hidden");
+        $("#showDataText").css("visibility","hidden");
+        $("#showData").css("visibility","hidden");
+        $("#difficultyListText").css("visibility","hidden");
+        $("#sortText").css("visibility","hidden");
         $("#leaderboard").css("color", "#03DAC6");
         $("#leaderboard").css("border-color", "#03DAC6");
         $("#rankedText").css("color", "#FFFFFF");
         $("#rankedText").css("border-color", "#FFFFFF");
+        $("#easy").css("color","#FFFFFF");
+        $("#easy").css("border-color","#FFFFFF");
+        $("#medium").css("color","#FFFFFF");
+        $("#medium").css("border-color","#FFFFFF");
+        $("#hard").css("color","#FFFFFF");
+        $("#hard").css("border-color","#FFFFFF");
     } else if (num == 1) {
         $("#difficultyList").css("visibility","hidden");
         $("#sort").css("visibility","hidden");
         $("#showData").css("visibility","hidden");
+        $("#difficultyListText").css("visibility","visible");
+        $("#sortTextText").css("visibility","hidden");
+        $("#showData").css("visibility","hidden");
+        $("#sortText").css("visibility","hidden");
+        
         $("#leaderboard").css("color", "#FFFFFF");
         $("#leaderboard").css("border-color", "#FFFFFF");
         $("#rankedText").css("color", "#03DAC6");
         $("#rankedText").css("border-color", "#03DAC6");
+        $("#easyText").css("color","#FFFFFF");
+        $("#easyText").css("border-color","#FFFFFF");
+        $("#mediumText").css("color","#FFFFFF");
+        $("#mediumText").css("border-color","#FFFFFF");
+        $("#hardText").css("color","#FFFFFF");
+        $("#hardText").css("border-color","#FFFFFF");
     }
 }
 
 function changeDif(num) {
-
+    $("#sortText").css("visibility","hidden");
     $("#sort").css("visibility","visible");
         $("#showData").css("visibility","visible");
     if(num == 0) {
@@ -173,5 +194,36 @@ function changeDif(num) {
         $("#medium").css("border-color","#FFFFFF");
         $("#hard").css("color","#F44336");
         $("#hard").css("border-color","#F44336");
+    }
+}
+
+function changeDifText(num) {
+
+    $("#sortTextText").css("visibility","visible");
+    $("#sortText").css("visibility","visible");
+        $("#showData").css("visibility","visible");
+    if(num == 0) {
+        $("#easyText").css("color","#4CAF50");
+        $("#easyText").css("border-color","#4CAF50");
+        $("#mediumText").css("color","#FFFFFF");
+        $("#mediumText").css("border-color","#FFFFFF");
+        $("#hardText").css("color","#FFFFFF");
+        $("#hardText").css("border-color","#FFFFFF");
+    } else if(num == 1) {
+
+        $("#easyText").css("color","#FFFFFF");
+        $("#easyText").css("border-color","#FFFFFF");
+        $("#mediumText").css("color","#FFEB3B");
+        $("#mediumText").css("border-color","#FFEB3B");
+        $("#hardText").css("color","#FFFFFF");
+        $("#hardText").css("border-color","#FFFFFF");
+
+    } else if(num == 2) {
+        $("#easyText").css("color","#FFFFFF");
+        $("#easyText").css("border-color","#FFFFFF");
+        $("#mediumText").css("color","#FFFFFF");
+        $("#mediumText").css("border-color","#FFFFFF");
+        $("#hardText").css("color","#F44336");
+        $("#hardText").css("border-color","#F44336");
     }
 }
