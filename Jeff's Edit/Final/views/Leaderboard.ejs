@@ -53,15 +53,51 @@
                 </a>
             </ul>
         </div>
-        <div id="table">
-            <div id="showData"></div>
+
+        <div id="center">
+
+                <ul id="sortingList">
+                        <li id="sortItem">
+                            <button id="leaderboard" onclick="change(0)">
+                                Leader Board
+                            </button>
+                        </li>
+                        <li id="sortItem">
+                            <button id="rankedText" onclick="change(1)">
+                                Ranked Text
+                            </button>
+                        </li>
+                    </ul>
+
+                    <ul id="difficultyList">
+                            <li id="difButtons">
+                                <button id="easy" onclick="changeDif(0)">
+                                    EASY
+                                </button>
+                            </li>
+                            <li id="difButtons">
+                                <button id="medium" onclick="changeDif(1)">
+                                    MEDIUM
+                                </button>
+                            </li>
+                            <li id="difButtons">
+                                <button id="hard" onclick="changeDif(2)">
+                                    HARD
+                                </button>
+                            </li>
+                        </ul>
+
+            <select id="sort" onchange="sort();">
+                <option value="name">Sort by Name</option>
+                <option value="wpm">Sort by WPM</option>
+                <option value="acc">Sort by Accuracy</option>
+                <option value="time">Sort by Time</option>
+            </select>
+            <div id="table">
+                <div id="showData"></div>
+            </div>
+
         </div>
-        <select id="sort" onchange="sort();">
-            <option value="name">Sort by Name</option>
-            <option value="wpm">Sort by WPM</option>
-            <option value="acc">Sort by Accuracy</option>
-            <option value="time">Sort by Time</option>
-        </select>
     </div>
 </body>
 

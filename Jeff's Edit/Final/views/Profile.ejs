@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="ProfileStyle.css">
     <script src="bootstrap.js"></script>
     <link rel="stylesheet" href="/scss/bootstrap.css">
+    <script src="profileFunction.js"></script>
 </head>
 
 <body>
@@ -88,7 +89,6 @@
                 </a>
             </ul>
         </div>
-        <!-- Name, Games Played, Highest WPM, Best Time, Best Accuracy, Logout -->
         <div id="center">
             <div id="username">
                 SECADE
@@ -96,17 +96,17 @@
 
             <ul id="difficultyList">
                 <li id="difButtons">
-                    <button id="easy">
+                    <button id="easy" onclick="change(0)">
                         EASY
                     </button>
                 </li>
                 <li id="difButtons">
-                    <button id="medium">
+                    <button id="medium" onclick="change(1)">
                         MEDIUM
                     </button>
                 </li>
                 <li id="difButtons">
-                    <button id="hard">
+                    <button id="hard" onclick="change(2)">
                         HARD
                     </button>
                 </li>
@@ -120,19 +120,19 @@
                         </div>
                     </li>
                     <li id="statsItem">
-                        Words Per Minute:
+                        Average WPM:
                         <div id="statsInfo">
                             34.5
                         </div>
                     </li>
                     <li id="statsItem">
-                        Best Time:
+                        Average Time:
                         <div id="statsInfo">
                             20 secs
                         </div>
                     </li>
                     <li id="statsItem">
-                        Best Accuracy:
+                        Average Accuracy:
                         <div id="statsInfo">
                             23
                         </div>

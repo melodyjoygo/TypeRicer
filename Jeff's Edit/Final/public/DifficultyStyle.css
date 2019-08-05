@@ -11,6 +11,16 @@ body {
     src: url("./Stolzl_Display_Normal.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "Open Sans";
+    src: url("./OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url("./RALEWAY-REGULAR.TTF") format("truetype");
+}
+
 #stage {
     width: 100%;
     height: 100%;
@@ -159,35 +169,6 @@ body {
     font-family: 'Open Sans';
 }
 
-#easyLevel #button:hover {
-    color: #4CAF50;
-
-}
-
-#easyLevel:hover {
-    border-color: #4CAF50;
-}
-
-#medLevel:hover {
-    border-color: #FFEB3B;
-}
-
-#medLevel #button:hover {
-    color: #FFEB3B;
-
-}
-
-#hardLevel:hover {
-    border-color: #F44336;
-}
-
-#hardLevel #button:hover {
-    color: #F44336;
-
-}
-
-
-
 #start {
     width: 150px;
     height: 80px;
@@ -203,6 +184,8 @@ body {
     font-family: 'Stolzl';
     color: white;
     text-align: center;
+    border-color: #4CAF50;
+
 }
 
 #start:hover {
@@ -218,12 +201,12 @@ body {
 }
 
 #startBox {
-
+    visibility: hidden;
     width: auto;
     height: 125px;
     left: 0px;
-    top: 30%;
-    transform: translate(0%, -30%);
+    top: 25%;
+    transform: translate(0%, -25%);
     position: relative;
     display: flex;
     flex-direction: row;
