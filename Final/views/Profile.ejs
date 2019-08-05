@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypeRicer | Profile</title>
+
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="ProfileStyle.css">
+    <script src="bootstrap.js"></script>
+    <link rel="stylesheet" href="/scss/bootstrap.css">
+</head>
+
+<body>
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn btn-sm btn-danger" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                Are you sure you want to Logout?
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <a href="/" id="logoutButton">
+                                    <input type="button" class="form-control form-control-sm" value="Yes">
+                                </a>
+                            </div>
+                            <div class="col">
+                                <input type="button" class="form-control form-control-sm " value="No"
+                                    data-dismiss="modal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="stage">
+        <div id="sideBar">
+            <ul class="ButtonList">
+                <a href="/home" id="menu">
+                    <li>
+                        <div id="menuText">
+                            <p id="profileText">HOME</p>
+                            <img src="/Media/home.png" id="profilePic">
+                            <div id="menuLine"></div>
+                        </div>
+                    </li>
+                </a>
+                <a href="/difficulty" id="menu">
+                    <li>
+                        <div id="menuText">
+                            <p id="profileText">PLAY</p>
+                            <img src="/Media/play-button.png" id="profilePic">
+                            <div id="menuLine"></div>
+                        </div>
+                    </li>
+                </a>
+                <a href="/ranking" id="menu">
+                    <li>
+                        <div id="menuText">
+                            <p id="profileText">RANKINGS</p>
+                            <img src="/Media/ranking.png" id="profilePic">
+                            <div id="menuLine"></div>
+                        </div>
+                    </li>
+                </a>
+                <a href="/profile" id="menu">
+                    <li>
+                        <div id="menuText">
+                            <p id="profileText" class="highlight">PROFILE</p>
+                            <img src="/Media/avatar.png" id="profilePic">
+                            <div id="menuLineH"></div>
+                        </div>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <!-- Name, Games Played, Highest WPM, Best Time, Best Accuracy, Logout -->
+        <div id="center">
+            <div id="username">
+                SECADE
+            </div>
+
+            <ul id="difficultyList">
+                <li id="difButtons">
+                    <button id="easy">
+                        EASY
+                    </button>
+                </li>
+                <li id="difButtons">
+                    <button id="medium">
+                        MEDIUM
+                    </button>
+                </li>
+                <li id="difButtons">
+                    <button id="hard">
+                        HARD
+                    </button>
+                </li>
+            </ul>
+            <div id="statsBox">
+                <ul id="statsList">
+                    <li id="statsItem">
+                        Games Played:
+                        <div id="statsInfo">
+                            12
+                        </div>
+                    </li>
+                    <li id="statsItem">
+                        Words Per Minute:
+                        <div id="statsInfo">
+                            34.5
+                        </div>
+                    </li>
+                    <li id="statsItem">
+                        Best Time:
+                        <div id="statsInfo">
+                            20 secs
+                        </div>
+                    </li>
+                    <li id="statsItem">
+                        Best Accuracy:
+                        <div id="statsInfo">
+                            23
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button href="/" id="menu" class="logout" data-toggle="modal" data-target="#modal">
+                <div id="menuText">
+                    <p id="profileText">Logout</p>
+                    <img src="/Media/logout.png" id="profilePic">
+                    <div id="menuLine"></div>
+                </div>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypeRicer | Play</title>
+    <script src="jquery-3.4.1.js"></script>
+    <script src="medium.js"></script>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="GameStyle.css">
+</head>
+
+<body onload="start()">
+    <div id="stage">
+        <div id="countDown">
+            <div id="count"></div>
+        </div>
+
+        <div id="mainText"></div>
+        <div id="midLine">
+
+        </div>
+        <input type="text" id="inputText" placeholder="Type Here" autocomplete="off">
+
+        <div id="time"></div>
+
+        <div id="showStats">
+            <ul id="statsList">
+                <li id="textBox">
+                    Time Spent:
+                    <div id="timeStat"></div>
+                </li>
+                <li id="textBox">
+                    Words Per Minute:
+                    <div id="wpmStat"></div>
+                </li>
+                <li id="textBox">
+                    Accuracy:
+                    <div id="accuracyStat"></div>
+                </li>
+            </ul>
+
+            <ul id="buttonList">
+                <a href="#" id="postButton" onclick="restart()">
+                    <li>
+                        Restart
+                    </li>
+                </a>
+
+                <a href="/difficulty" id="postButton">
+                    <li>
+                        Change Difficulty
+                    </li>
+                </a>
+
+                <a href="/home" id="postButton">
+                    <li>
+                        Home
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
