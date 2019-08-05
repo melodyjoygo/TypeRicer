@@ -18,23 +18,68 @@ USE `typericer`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sessions`
+-- Table structure for table `easy`
 --
 
-DROP TABLE IF EXISTS `sessions`;
+DROP TABLE IF EXISTS `easy`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sessions` (
-  `idsessions` int(11) NOT NULL,
-  `userID` int(11) DEFAULT NULL,
+CREATE TABLE `easy` (
+  `ideasy` int(11) NOT NULL,
+  `idusers` int(11) DEFAULT NULL,
   `wpm` int(11) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
   `accuracy` int(11) DEFAULT NULL,
-  `time` int(11) DEFAULT NULL
+  PRIMARY KEY (`ideasy`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sessions`
+-- Dumping data for table `easy`
+--
+
+
+--
+-- Table structure for table `hard`
+--
+
+DROP TABLE IF EXISTS `hard`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hard` (
+  `idhard` int(11) NOT NULL,
+  `idusers` int(11) DEFAULT NULL,
+  `wpm` int(11) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `accuracy` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idhard`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hard`
+--
+
+
+--
+-- Table structure for table `medium`
+--
+
+DROP TABLE IF EXISTS `medium`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medium` (
+  `idmedium` int(11) NOT NULL,
+  `idusers` int(11) DEFAULT NULL,
+  `wpm` int(11) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `accuracy` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idmedium`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medium`
 --
 
 
@@ -101,9 +146,7 @@ CREATE TABLE `users` (
   `idusers` int(11) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) DEFAULT NULL,
-  `wpm` int(11) DEFAULT NULL,
-  `time` int(11) DEFAULT NULL,
-  `game` int(11) DEFAULT NULL,
+  `gamesplayed` int(11) DEFAULT NULL,
   PRIMARY KEY (`idusers`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -122,4 +165,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-05 20:38:11
+-- Dump completed on 2019-08-05 22:09:36

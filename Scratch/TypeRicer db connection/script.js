@@ -45,7 +45,7 @@ function addUser(name,password, wpm, time){
 
     var ctr = connection.query("SELECT COUNT(idusers) FROM users")+1 ;
 
-    connection.query("INSERT INTO 'typericer'.'users' ('idusers', 'username', 'password','wpm','time') VALUES (" + ctr + "," + name +", "+ password +","+wpm+"," + time + ")", function(error){
+    connection.query("INSERT INTO 'typericer'.'users' ('idusers', 'username', 'password', 'gamesplayed') VALUES (" + ctr + "," + name +", "+ password + " 0)", function(error){
         if(!!error){
             console.log("Failed to insert data");
         }
@@ -73,6 +73,185 @@ function getUsers(){
 });
 }
 
+function getEasy(){
+    connection.query("SELECT * FROM easy", function(error, rows, fields){
+        //callback
+        if(!!error){
+            console.log("error in the query");
+        }
+        else{
+            console.log("successful query\n");
+            //console.log(rows);
+            //parse
+            var easyArray ;
+            easyArray =rows;
+    
+            console.log(easyArray);
+        }
+    });
+}
+
+function getMedium(){
+    connection.query("SELECT * FROM medium", function(error, rows, fields){
+        //callback
+        if(!!error){
+            console.log("error in the query");
+        }
+        else{
+            console.log("successful query\n");
+            //console.log(rows);
+            //parse
+            var mediumArray ;
+            mediumArray =rows;
+    
+            console.log(mediumArray);
+        }
+    });
+}
+
+function getHard(){
+    connection.query("SELECT * FROM hard", function(error, rows, fields){
+        //callback
+        if(!!error){
+            console.log("error in the query");
+        }
+        else{
+            console.log("successful query\n");
+            //console.log(rows);
+            //parse
+            var hardArray ;
+            hardArray =rows;
+    
+            console.log(hardArray);
+        }
+    });
+}
+
+function addEasy(userid, wpm, accuracy, time){
+
+    var check = connection.query("SELECT textid FROM easy WHERE userid = '"+userid+"'") ;
+    var ctr = connection.query("SELECT COUNT(ideasy) FROM easy") +1;
+
+    if(check==NULL){
+        connection.query("INSERT INTO 'typericer'.'easy' ('ideasy', 'userID', 'wpm','time','accuracy' ) VALUES (" + ctr + ", "+ userid +", "+wpm+"," +accuracy+","+ time+")", function(error){
+            if(!!error){
+                console.log("Failed to insert data");
+            }
+            else{
+                console.log("Added to database");
+            }
+        });
+    }
+    else{
+        var curr_wpm = connection.query("SELECT wpm from typericer.easy WHERE idusers =" +userid);
+        var curr_time = connection.query("SELECT time from typericer.easy WHERE idusers =" +userid);
+        var curr_accuracy = connection.query("SELECT accuracy from typericer.easy WHERE idusers =" +userid);
+        
+        if(wpm>curr_wpm){
+            connection.query("UPDATE 'typericer'.'easy' SET  'wpm'= "+wpm+ " WHERE 'idusers' =" +userid , function(error){
+                if(!!error){
+                    console.log("Failed to insert data");
+                }
+                else{
+                    console.log("Added to database");
+                } 
+            }); 
+        }
+        else if(time< curr_time){
+            connection.query("UPDATE 'typericer'.'easy' SET  'time'= "+time+ " WHERE 'idusers' =" +userid , function(error){
+                if(!!error){
+                    console.log("Failed to insert data");
+                }
+                else{
+                    console.log("Added to database");
+                } 
+            }); 
+        }
+        else if(accuracy> curr_accuracy){
+            connection.query("UPDATE 'typericer'.'easy' SET  'accuracy'= "+accuracy+ " WHERE 'idusers' =" +userid , function(error){
+                if(!!error){
+                    console.log("Failed to insert data");
+                }
+                else{
+                    console.log("Added to database");
+                } 
+            }); 
+        }
+        else if(accuracy> curr_accuracy && wpm>curr_wpm){
+            connection.query("UPDATE 'typericer'.'easy' SET 'wpm' = "+wpm+ "'accuracy'= "+accuracy+  " WHERE 'idusers' =" +userid , function(error){
+                if(!!error){
+                    console.log("Failed to insert data");
+                }
+                else{
+                    console.log("Added to database");
+                } 
+            }); 
+        }
+        else if(accuracy> curr_accuracy && time< curr_time){
+            connection.query("UPDATE 'typericer'.'easy' SET 'accuracy'= "+accuracy+  " 'time' =" +time+" WHERE 'idusers' =" +userid , function(error){
+                if(!!error){
+                    console.log("Failed to insert data");
+                }
+                else{
+                    console.log("Added to database");
+                } 
+            }); 
+        }
+        else if(wpm>curr_wpm && time< curr_time){
+            connection.query("UPDATE 'typericer'.'easy' SET 'wpm'= "+wpm+  " 'time' =" +time+" WHERE 'idusers' =" +userid , function(error){
+                if(!!error){
+                    console.log("Failed to insert data");
+                }
+                else{
+                    console.log("Added to database");
+                } 
+            }); 
+        }
+        else if(wpm>curr_wpm && time< curr_time && accuracy> curr_accuracy){
+            connection.query("UPDATE 'typericer'.'easy' SET 'wpm'= "+wpm+  " 'time' =" +time+"'accuracy' = "+accuracy+ " WHERE 'idusers' =" +userid , function(error){
+                if(!!error){
+                    console.log("Failed to insert data");
+                }
+                else{
+                    console.log("Added to database");
+                } 
+            }); 
+        }
+
+        
+
+    }
+}
+
+function addEasy(userid, wpm, accuracy, time){
+
+    var check = connection.query("SELECT textid FROM easy WHERE userid = '"+userid+"'") ;
+    var ctr = connection.query("SELECT COUNT(ideasy) FROM easy") +1;
+
+    if(check==NULL){
+        connection.query("INSERT INTO 'typericer'.'easy' ('ideasy', 'userID', 'wpm','time','accuracy' ) VALUES (" + ctr + ", "+ userid +", "+wpm+"," +accuracy+","+ time+")", function(error){
+            if(!!error){
+                console.log("Failed to insert data");
+            }
+            else{
+                console.log("Added to database");
+            }
+        });
+    }
+    else{
+        connection.query("UPDATE 'typericer'.'easy' SET  'wpm'= "+wpm+", 'accuracy'="+accuracy +", 'time'="+time+ " WHERE 'idusers' =" +userid , function(error){
+            if(!!error){
+                console.log("Failed to insert data");
+            }
+            else{
+                console.log("Added to database");
+            } 
+        }); 
+    }
+}
+
+
+/*
 function addSession(userid, wpm, accuracy, time){
 
     var ctr = connection.query("SELECT COUNT(idsessions) FROM sessions") +1;
@@ -103,7 +282,7 @@ function getSessions(){
        console.log(textArray);
    }
 });
-}
+}*/
 
 function addTextRank(textid, userid, wpm, accuracy, time){
 
@@ -152,8 +331,8 @@ function getTextRanks(){
 
 function updateGamesPlayed(userID){
 
-    var ctr = connection.query("SELECT games FROM 'typericer'.'users' WHERE idusers =" +userID) +1;
-    connection.query("UPDATE 'typericer'.'users' SET 'games'="+ctr+ " WHERE 'idusers' =" +userid , function(error){
+    var ctr = connection.query("SELECT gamesplayed FROM 'typericer'.'users' WHERE idusers =" +userID) +1;
+    connection.query("UPDATE 'typericer'.'users' SET 'gamesplayed'="+ctr+ " WHERE 'idusers' =" +userid , function(error){
         if(!!error){
             console.log("Failed to insert data");
         }
