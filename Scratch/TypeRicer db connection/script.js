@@ -150,5 +150,19 @@ function getTextRanks(){
 });
 }
 
+function updateGamesPlayed(userID){
+
+    var ctr = connection.query("SELECT games FROM 'typericer'.'users' WHERE idusers =" +userID) +1;
+    connection.query("UPDATE 'typericer'.'users' SET 'games'="+ctr+ " WHERE 'idusers' =" +userid , function(error){
+        if(!!error){
+            console.log("Failed to insert data");
+        }
+        else{
+            console.log("Added to database");
+        } 
+    }); 
+}
+}
+
 
 app.listen(1337);
