@@ -141,3 +141,33 @@ body {
         position: absolute;
     }
 }
+
+/* ADDED */
+th, td, p, input {
+    font:14px 'Raleway';
+}
+th {
+    font-weight:bold;
+    border: solid 1px white;
+    padding: 2px 3px;
+    text-align: center;
+    color: white;
+    position: relative;
+    left: 400px;
+    top: 100px;
+}
+
+td {
+    width: auto;
+    border: solid 1px white;
+    padding: 2px 3px;
+    text-align: center;
+    color: white;
+    position: relative;
+    left: 400px;
+    top: 100px;
+}
+#sort {
+    position: relative;
+    left: 800px;
+}

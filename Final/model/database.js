@@ -15,6 +15,7 @@ class Database {
             this.connection.query( sql, args, ( err, rows ) => {
                 if ( err )
                     return reject( err );
+                
                 resolve( rows );
             });
         });
@@ -24,9 +25,10 @@ class Database {
             this.connection.end( err => {
                 if ( err )
                     return reject( err );
+
                 resolve();
-            } );
-        } );
+            });
+        });
     }
 }
 

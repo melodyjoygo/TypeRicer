@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TypeRicer | Ranking</title>
-
+    <script src="jquery-3.4.1.js"></script>
+    <script src="ranking.js"></script>
     <link rel="stylesheet" href="LeaderboardStyle.css">
 </head>
 
-<body>
+<body onload="sort()">
     <div id="stage">
         <div id="sideBar">
             <ul class="ButtonList">
@@ -52,6 +53,15 @@
                 </a>
             </ul>
         </div>
+        <div id="table">
+            <div id="showData"></div>
+        </div>
+        <select id="sort" onchange="sort();">
+            <option value="name">Sort by Name</option>
+            <option value="wpm">Sort by WPM</option>
+            <option value="acc">Sort by Accuracy</option>
+            <option value="time">Sort by Time</option>
+        </select>
     </div>
 </body>
 

@@ -28,7 +28,7 @@ router.get("/difficulty", (req, res) => {
 })
 router.get("/easy", (req, res) => {
     var data = Game.generate();
-    console.log(data);
+    // console.log(data);
     res.render('GameEasy');
 })
 router.get("/medium", (req, res) => {
