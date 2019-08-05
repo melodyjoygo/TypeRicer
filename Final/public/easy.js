@@ -49,7 +49,7 @@ function countdown() {
     var ctr = 5;
     var down = setInterval(function() {
         if(ctr > 0) {
-            $("#countdown").css({'visibility':'visible'});
+            $("#countDown").css({'visibility':'visible'});
             $("#count").text(ctr);
             ctr--;
         } else {
@@ -57,7 +57,7 @@ function countdown() {
             $("#count").text("GO!");
             clearInterval(down);
             $("#count").text("");
-            $("#countdown").css({'visibility':'hidden'});
+            $("#countDown").css({'visibility':'hidden'});
         }
     }, 1000);
 }

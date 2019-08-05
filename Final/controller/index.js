@@ -1,19 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const bodyParser = require("body-parser");
-const urlencoder = bodyParser.urlencoded({
-    extended: true
-})
-var app = express();
+
 const User = require("../model/user");
 const Game = require("../model/game");
 
-router.use(urlencoder);
 router.use("/register", require("./user"));
 
 router.post("/login", (req, res) => {
     Promise.resolve(User.validate(req.body.un, req.body.pw)).then(function(value) {
         if(value != '') {
+            req.session.id = value[0].idusers;
+            req.session.username = value[0].username;
+            req.session.password = value[0].password;
             res.render('Home');
         } else {
             //error
@@ -21,7 +19,11 @@ router.post("/login", (req, res) => {
     })
 })
 router.get("/", (req, res) => {
-    res.render('Login');
+    if(req.session.username) {
+        res.render('Home');
+    } else {
+        res.render('Login');
+    }
 })
 router.get("/home", (req, res) => {
     res.render('Home');
@@ -63,10 +65,30 @@ router.get("/hard", (req, res) => {
     });
 })
 router.get("/profile", (req, res) => {
-    res.render('Profile');
+    Promise.resolve(User.getUser(req.session.username)).then(function(profile) {
+        Promise.resolve(User.getEasy(req.session.username)).then(function(easy) {
+            Promise.resolve(User.getMedium(req.session.username)).then(function(medium) {
+                Promise.resolve(User.getHard(req.session.username)).then(function(hard) {
+                    console.log(profile);
+                    res.render('Profile', {
+                        name : profile[0].username,
+                        game : profile[0].gamesplayed,
+                        easy : easy[0].wpm + "|" + easy[0].time + "|" + easy[0].accuracy,
+                        medium : medium[0].wpm + "|" + medium[0].time + "|" + medium[0].accuracy,
+                        hard : hard[0].wpm + "|" + hard[0].time + "|" + hard[0].accuracy
+                    });
+                })
+            })
+        })
+    })
 })
 router.get("/ranking", (req, res) => {
     res.render('Leaderboard');
+})
+router.get("/logout", (req, res) => {
+    console.log("logging out");
+    req.session.destroy();
+    res.render('Login');
 })
 
 module.exports = router;

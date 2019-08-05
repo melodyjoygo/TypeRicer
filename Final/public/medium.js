@@ -11,6 +11,7 @@ document.addEventListener('keydown', function(e) {
 })
 
 document.addEventListener('keypress', function(e) {
+    $("#inputText").css({'color':'rgb(255, 110, 236)'});
     if(e.keyCode == 13) {
         e.preventDefault();
     }
@@ -58,7 +59,7 @@ function countdown() {
     var ctr = 5;
     var down = setInterval(function() {
         if(ctr > 0) {
-            $("#countdown").css({'visibility':'visible'});
+            $("#countDown").css({'visibility':'visible'});
             $("#count").text(ctr);
             ctr--;
         } else {
@@ -66,7 +67,7 @@ function countdown() {
             $("#count").text("GO!");
             clearInterval(down);
             $("#count").text("");
-            $("#countdown").css({'visibility':'hidden'});
+            $("#countDown").css({'visibility':'hidden'});
         }
     }, 1000);
 }
