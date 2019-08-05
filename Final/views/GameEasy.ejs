@@ -9,10 +9,13 @@
     <script src="jquery-3.4.1.js"></script>
     <script src="easy.js"></script>
     <script src="jquery.js"></script>
+    <script>
+        var data = "<%= array %>";
+    </script>
     <link rel="stylesheet" href="GameStyle.css">
 </head>
 
-<body onload="start()">
+<body onload="setData(data)">
     <div id="stage">
         <div id="countDown">
             <div id="count"></div>

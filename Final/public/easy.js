@@ -1,12 +1,6 @@
 var text, temp, time, timer, words;
 var size, counter, error;
-var list = ["The growth of commercial agriculture which began with the tobacco monopoly was greatly accelerated by the rising demands of other exports products. Not only that, the Philippines economy growth also increase their foreign trade as well.",
-            "On the other hand, this led to a social changes in Philippines where some Filipinos were able to get a proper education and some others were able to raise their capitals, becoming rich, and this was the time where the Filipinos realized that they are not inferior to the Spaniards.",
-            "From this point onwards, the educated Filipinos were beginning to express reactions to the criticism of colonial arrangements.",
-            "At first, what Spaniards did were according to what they had promised.",
-            "However, these improvements could not be achieved through peaceful means. There must be a revolution.",
-            "Although most of the Filipinos were remain loyal to the Spaniards, the Spaniards realized that they couldn't stay hidden inside the wall of Intramuros any longer.",
-            "Short story, the Spaniards were able to recover the Philippines."];
+var list = [];
 
 document.addEventListener('keypress', function(e) {
     $("#inputText").css({'color':'rgb(255, 110, 236)'});
@@ -36,8 +30,16 @@ document.addEventListener('keypress', function(e) {
     }
 })
 
+function setData(data) {
+    list = data.split("|");
+    list = list.splice(0, list.length - 1);
+    for(var i = 0; i < list.length; i++) {
+        list[i] = list[i].replace(/&#39;/g, "'");
+    }
+    start();
+}
+
 function start() {
-    // console.log(data);
     $('input[type="text"]').prop("disabled", true);
     countdown();
     init();
@@ -143,5 +145,7 @@ function randomize(num) {
 }
 
 function restart() {
-    location.reload();
+    $("#mainText").text("");
+    $("#time").text("00:00");
+    start();
 }

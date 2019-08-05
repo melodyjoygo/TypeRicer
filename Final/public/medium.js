@@ -1,12 +1,6 @@
 var text, temp, time, timer, words;
 var size, counter, error, count;
-var list = ["The growth of commercial agriculture which began with the tobacco monopoly was greatly accelerated by the rising demands of other exports products. Not only that, the Philippines economy growth also increase their foreign trade as well.",
-            "On the other hand, this led to a social changes in Philippines where some Filipinos were able to get a proper education and some others were able to raise their capitals, becoming rich, and this was the time where the Filipinos realized that they are not inferior to the Spaniards.",
-            "From this point onwards, the educated Filipinos were beginning to express reactions to the criticism of colonial arrangements. They realized they need to be independent from the things that have been hindering them from moving forwards such as their moral backwardness and the fact that their religious beliefs are still confined in practice only without any deeper meaning to it.",
-            "As first, what Spaniards did were according to what they had promised.",
-            "However, these improvements could not be achieved through peaceful means. There must be a revolution.",
-            "Although most of the Filipinos were remain loyal to the Spaniards, the Spaniards realized that they couldn't stay hidden inside the wall of Intramuros any longer.",
-            "Short story, the Spaniards were able to recover the Philippines."];
+var list = [];
 
 document.addEventListener('keydown', function(e) { 
     if(e.keyCode == 8) {
@@ -44,6 +38,15 @@ document.addEventListener('keypress', function(e) {
         finish();
     }
 })
+
+function setData(data) {
+    list = data.split("|");
+    list = list.splice(0, list.length - 1);
+    for(var i = 0; i < list.length; i++) {
+        list[i] = list[i].replace(/&#39;/g, "'");
+    }
+    start();
+}
 
 function start() {
     $('input[type="text"]').prop("disabled", true);
@@ -149,4 +152,10 @@ function randomize(num) {
     $("#time").css({'visibility':'visible'});
     startGame();
     init();
+}
+
+function restart() {
+    $("#mainText").text("");
+    $("#time").text("00:00");
+    start();
 }
