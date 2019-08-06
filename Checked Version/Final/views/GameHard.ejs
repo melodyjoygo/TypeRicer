@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypeRicer | Play</title>
+    <script src="jquery-3.4.1.js"></script>
+    <script src="hard.js"></script>
+    <script src="jquery.js"></script>
+    <script>
+        var data = "<%= array %>";
+    </script>
+    <link rel="stylesheet" href="GameStyle.css">
+</head>
+
+<body onload="setData(data)">
+    <div id="stage">
+        <div id="countDown">
+            <div id="count"></div>
+        </div>
+
+        <div id="mainText"></div>
+        <div id="midLine">
+
+        </div>
+        <input type="text" id="inputText" placeholder="Type Here" autocomplete="off">
+
+        <div id="time"></div>
+
+        <div id="showStats">
+            <ul id="statsList">
+                <li id="textBox">
+                    Time Spent:
+                    <div id="timeStat"></div>
+                </li>
+                <li id="textBox">
+                    Words Per Minute:
+                    <div id="wpmStat"></div>
+                </li>
+                <li id="textBox">
+                    Accuracy:
+                    <div id="accuracyStat"></div>
+                </li>
+            </ul>
+
+            <ul id="buttonList">
+                <a href="#" id="postButton" onclick="restart()">
+                    <li id="btnText">
+                        Restart
+                    </li>
+                </a>
+
+                <a href="/difficulty" id="postButton">
+                    <li id="btnText">
+                        Change Difficulty
+                    </li>
+                </a>
+
+                <a href="/home" id="postButton">
+                    <li id="btnText">
+                        Home
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
