@@ -17,7 +17,7 @@ app.use(session({
     saveUninitialized : true,
     secret : "secretpass",
     cookie : {
-        maxAge: 60*60*1000
+        maxAge: 10*60*60*1000
     }
 }));
 app.use(express.static(path.join(__dirname, 'public')));

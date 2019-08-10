@@ -1,5 +1,5 @@
 var text, temp, time, timer, words;
-var size, counter, error;
+var size, counter, error, index;
 var list = [];
 
 document.addEventListener('keypress', function(e) {
@@ -30,11 +30,16 @@ document.addEventListener('keypress', function(e) {
     }
 })
 
-function setData(data) {
-    list = data.split("|");
-    list = list.splice(0, list.length - 1);
-    for(var i = 0; i < list.length; i++) {
-        list[i] = list[i].replace(/&#39;/g, "'");
+function setData(id, data, title) {
+    var temp1 = id.split("|");
+    var temp2 = data.split("|");
+    var temp3 = title.split("|");
+    for(var i = 0; i < temp1.length; i++) {
+        var obj = new Object();
+        obj.id = temp1[i].replace(/&#39;/g, "'");
+        obj.text = temp2[i].replace(/&#39;/g, "'");
+        obj.title = temp3[i].replace(/&#39;/g, "'");
+        list.push(obj);
     }
     start();
 }
@@ -58,6 +63,7 @@ function countdown() {
             clearInterval(down);
             $("#count").text("");
             $("#countDown").css({'visibility':'hidden'});
+            $("#inputText").focus();
         }
     }, 1000);
 }
@@ -110,6 +116,12 @@ function finish() {
     $("#accuracyStat").text(getAccuracy() + "%");
     $("#timeStat").text(digits(Math.trunc(time/60)) + ":" + digits(time % 60));
     $("#showStats").css("visibility","visible");
+    $("#wpm").val(getTime(words.length));
+    $("#acc").val(getAccuracy());
+    $("#timeConsumed").val(time);
+    $("#textID").val(list[index].id);
+    $("#diff").val(0);
+    $("#end").click();
 }
 
 function getTime(num) {
@@ -128,9 +140,11 @@ function randomize(num) {
     error = 0;
     time = num;
     while(temp == text) {
-        text = list[Math.floor(Math.random() * list.length)]
+        index = Math.floor(Math.random() * list.length);
+        text = list[index].text;
         if(temp != text) {
             $("#mainText").text(text);
+            $("#textTitle").text(list[index].title);
             size = text.length;
         }
     }
@@ -145,7 +159,8 @@ function randomize(num) {
 }
 
 function restart() {
+    $("#textTitle").text("");
     $("#mainText").text("");
-    $("#time").text("00:00");
+    $("#time").css({'visibility':'hidden'});
     start();
 }

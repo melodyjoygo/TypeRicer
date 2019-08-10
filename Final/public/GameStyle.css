@@ -199,7 +199,7 @@ input:focus {
     left: 50%;
     top: 10%;
     transform: translate(-50%, -10%);
-
+    
     background-color: transparent;
     color: rgb(255, 110, 236);
     font-family: 'Raleway';
@@ -309,6 +309,45 @@ input:focus {
     position: relative;
 }
 
+#giveUp{
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 95%;
+    transform: translate(-50%,-95%);
+    background-color: transparent;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 0px 3px 0px;
+    text-decoration: none;
+}
+
+#giveText{
+    font-family: 'Stolzl';
+    font-size: 20px;
+    color: #F44336;
+}
+
+#textTitle{
+    width: 200px;
+    text-align: center;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    transform: translate(-50%,-1%);
+    font-family: 'Stolzl';
+    color: white;
+    font-size: 12px;
+}
+
+#end {
+    visibility: hidden;
+}
 /* .gradient {
     position: relative;
     height: 100%;
@@ -344,6 +383,11 @@ input:focus {
 
     #inputText {
         width: 50%;
+    }
+
+    #time{
+        top: 13%;
+        transform: translate(-50%,-13%);
     }
 }
 

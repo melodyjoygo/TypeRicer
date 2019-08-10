@@ -8,10 +8,15 @@
     <title>TypeRicer | Ranking</title>
     <script src="jquery-3.4.1.js"></script>
     <script src="ranking.js"></script>
+    <script>
+        var easy = "<%= easy %>";
+        var medium = "<%= medium %>";
+        var hard = "<%= hard %>";
+    </script>
     <link rel="stylesheet" href="LeaderboardStyle.css">
 </head>
 
-<body onload="sort()">
+<body onload="setData(easy, medium, hard)">
     <div id="stage">
         <div id="sideBar">
             <ul class="ButtonList">
