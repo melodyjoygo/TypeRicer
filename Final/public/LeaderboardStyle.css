@@ -38,7 +38,7 @@ body {
     border: 2px;
     text-decoration: none;
     margin: 10px 0px 10px 0px;
-    transform: rotate(-90deg);
+    transform: rotate(0deg);
 }
 
 #menuText {
@@ -95,7 +95,7 @@ body {
 
 #sideBar {
     height: 100%;
-    width: 110px;
+    width: 150px;
     left: 0px;
     top: 0px;
     position: fixed;

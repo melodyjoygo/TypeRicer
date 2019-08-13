@@ -1,5 +1,5 @@
 var text, timer, time;
-var size, counter, error, count;
+var size, counter, error, count, index;
 var list = [];
 
 document.addEventListener('keydown', function(e) { 
@@ -40,14 +40,20 @@ document.addEventListener('keypress', function(e) {
     }
 })
 
-function setData(data) {
-    list = data.split("|");
-    list = list.splice(0, list.length - 1);
-    for(var i = 0; i < list.length; i++) {
-        list[i] = list[i].replace(/&#39;/g, "'");
+function setData(id, data, title) {
+    var temp1 = id.split("|");
+    var temp2 = data.split("|");
+    var temp3 = title.split("|");
+    for(var i = 0; i < temp1.length; i++) {
+        var obj = new Object();
+        obj.id = temp1[i].replace(/&#39;/g, "'");
+        obj.text = temp2[i].replace(/&#39;/g, "'");
+        obj.title = temp3[i].replace(/&#39;/g, "'");
+        list.push(obj);
     }
     start();
 }
+
 
 function start() {
     $('input[type="text"]').prop("disabled", true);
@@ -68,6 +74,7 @@ function countdown() {
             clearInterval(down);
             $("#count").text("");
             $("#countDown").css({'visibility':'hidden'});
+            $("#inputText").focus();
         }
     }, 1000);
 }
@@ -120,6 +127,12 @@ function finish() {
     $("#accuracyStat").text(getAccuracy() + "%");
     $("#timeStat").text(digits(Math.trunc(time/60)) + ":" + digits(time % 60));
     $("#showStats").css("visibility","visible");
+    $("#wpm").val(getTime(words.length));
+    $("#acc").val(getAccuracy());
+    $("#timeConsumed").val(time);
+    $("#textID").val(list[index].id);
+    $("#diff").val(2);
+    $("#end").click();
 }
 
 function getTime(num) {
@@ -138,7 +151,8 @@ function randomize(num) {
     count = 0;
     error = 0;
     time = num;
-    var str = list[Math.floor(Math.random() * list.length)].split(" ");
+    index = Math.floor(Math.random() * list.length);
+    var str = list[index].text.split(" ");
     text = '';
     for(var i = 0; i < str.length; i++) {
         text += (shuffle(str[i].split('')).join(''));
@@ -147,6 +161,7 @@ function randomize(num) {
         }
     }
     $("#mainText").text(text);
+    $("#textTitle").text(list[index].title);
     size = text.length;
     words = $.trim($("#mainText").text()).split(" ");
     marking();
@@ -162,7 +177,8 @@ function shuffle(array) {
 }
 
 function restart() {
+    $("#textTitle").text("");
     $("#mainText").text("");
-    $("#time").text("00:00");
+    $("#time").css({'visibility':'hidden'});
     start();
 }

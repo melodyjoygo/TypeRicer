@@ -42,7 +42,7 @@ body {
     border: 2px;
     text-decoration: none;
     margin: 10px 0px 10px 0px;
-    transform: rotate(-90deg);
+    transform: rotate(0deg);
 }
 
 #menuText {
@@ -98,12 +98,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 #sideBar {
     height: 100%;
-    width: 110px;
+    width: 150px;
     left: 0px;
     top: 0px;
     position: fixed;
@@ -142,7 +141,7 @@ body {
     padding: 0px;
     justify-content: center;
     align-content: center;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     display: flex;
     background-color: transparent;
@@ -154,15 +153,14 @@ body {
 #easyLevel,
 #medLevel,
 #hardLevel {
-    width: 40%;
+    width: auto;
     height: auto;
     border-style: solid;
     border-color: white;
     border-width: 0px 0px 3px 0px;
-    left: 50%;
-    transform: translate(-50%);
+
     position: relative;
-    margin: 20px 0px 20px 0px;
+    margin: 25px;
     padding: 5px;
     align-content: center;
     justify-content: center;
@@ -204,10 +202,10 @@ body {
     visibility: hidden;
     width: auto;
     height: 125px;
-    left: 0px;
-    top: 25%;
-    transform: translate(0%, -25%);
-    position: relative;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -90%);
+    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -260,8 +258,8 @@ input:focus {
     color: #4CAF50;
     /*#4CAF50 for Easy, #FFEB3B for Medium,  #F44336 for Hard*/
     left: 50%;
-    top: 15%;
-    transform: translate(-50%, -15%);
+    top: 30%;
+    transform: translate(-50%, -30%);
     font-family: 'Raleway';
     position: relative;
     display: flex;
@@ -275,6 +273,10 @@ input:focus {
 }
 
 @media all and (max-width:430px) {
+
+    #desc{
+        font-size: 16px;
+    }
 
     #easyLevel,
     #medLevel,
@@ -328,14 +330,35 @@ input:focus {
     }
 
     #startBox {
-        top: 20%;
-        transform: translate(0%, -20%);
+        top: 98%;
+        left: 50%;
+        transform: translate(-50%, -98%);
     }
 }
 
 @media all and (max-width:640px) {
     #startBox {
-        top: 20%;
-        transform: translate(0%, -20%);
+        top: 98%;
+        left: 50%;
+        transform: translate(-50%, -98%);
+    }
+
+    .DifficultyList {
+        flex-direction: column;
+    }
+
+    #easyLevel,
+    #medLevel,
+    #hardLevel {
+        width: 60%;
+        margin: 20px 0px 20px 0px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    #desc {
+        left: 50%;
+        top: 15%;
+        transform: translate(-50%, -15%);
     }
 }

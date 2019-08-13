@@ -1,71 +1,44 @@
-var data = [{
-        'id': '1',
-        'username': 'agmambar',
-        'wpm': '64',
-        'accuracy': '98.54',
-        'time': '45'
-    }, {
-        'id': '2',
-        'username': 'stanley',
-        'wpm': '32',
-        'accuracy': '23.54',
-        'time': '425'
-    }, {
-        'id': '3',
-        'username': 'hahahahah',
-        'wpm': '12',
-        'accuracy': '39.54',
-        'time': '245'
-    }, {
-        'id': '4',
-        'username': 'klekmeri',
-        'wpm': '13',
-        'accuracy': '94.54',
-        'time': '452'
-    }, {
-        'id': '5',
-        'username': 'zumba',
-        'wpm': '4',
-        'accuracy': '10.54',
-        'time': '425'
-    }, {
-        'id': '6',
-        'username': 'matt',
-        'wpm': '6',
-        'accuracy': '78.54',
-        'time': '451'
-    }, {
-        'id': '7',
-        'username': 'lola',
-        'wpm': '3',
-        'accuracy': '88.54',
-        'time': '415'
-    }, {
-        'id': '8',
-        'username': 'taco bell',
-        'wpm': '24',
-        'accuracy': '65.54',
-        'time': '145'
-    }, {
-        'id': '9',
-        'username': 'uni',
-        'wpm': '54',
-        'accuracy': '12.54',
-        'time': '45'
-    }, {
-        'id': '10',
-        'username': 'oppa',
-        'wpm': '94',
-        'accuracy': '1.54',
-        'time': '5'
-    }
+var easyData = [], mediumData = [], hardData = [];
+var index = 0, table;
 
-]
+function setData(easy, medium, hard) {
+    var temp1 = easy.split("|");
+    var temp2 = medium.split("|");
+    var temp3 = hard.split("|");
+    for(var i = 0; i < temp1.length; i++) {
+        var score = temp1[i].split(":");
+        var data = new Object();
+        data.username = score[0];
+        data.wpm = parseFloat(score[1]);
+        data.time = parseInt(score[2]);
+        data.acc = parseFloat(score[3]);
+        easyData.push(data);
+    }
+    for(var j = 0; j < temp2.length; j++) {
+        var score = temp2[j].split(":");
+        var data = new Object();
+        data.username = score[0];
+        data.wpm = parseFloat(score[1]);
+        data.time = parseInt(score[2]);
+        data.acc = parseFloat(score[3]);
+        mediumData.push(data);
+    }
+    for(var k = 0; k < temp3.length; k++) {
+        var score = temp3[k].split(":");
+        var data = new Object();
+        data.username = score[0];
+        data.wpm = parseFloat(score[1]);
+        data.time = parseInt(score[2]);
+        data.acc = parseFloat(score[3]);
+        hardData.push(data);
+    }
+    sort();
+}
 
 function createTable(obj) {
     var col = ['No.', 'Username', 'WPM', 'Accuracy', 'Best Time'];
 
-    var table = document.createElement("table");
+    table = document.createElement("table");
     var tr = table.insertRow(-1); // TABLE ROW.
 
     for (var i = 0; i < col.length; i++) {
@@ -85,7 +58,7 @@ function createTable(obj) {
             } else if (i == 2) {
                 tabCell.innerHTML = obj[x].wpm;
             } else if (i == 3) {
-                tabCell.innerHTML = obj[x].accuracy + "%";
+                tabCell.innerHTML = obj[x].acc + "%";
             } else if (i == 4) {
                 tabCell.innerHTML = obj[x].time;
             }
@@ -97,9 +70,15 @@ function createTable(obj) {
     divContainer.appendChild(table);
 }
 
-function sort() {
-    var type = $("#sort").val();
-    var arr = data.slice(0, data.length);
+function sort(type) {
+    var arr;
+    if(index == 0) {
+        arr = easyData.splice(1, easyData.length);
+    } else if(index == 1) {  
+        arr = mediumData.splice(1, mediumData.length);
+    } else if(index == 2) {
+        arr = hardData.splice(1, hardData.length);
+    }
     if (type == "name") {
         arr.sort(function (a, b) {
             var first = a.username.toLowerCase();
@@ -124,6 +103,7 @@ function sort() {
             return a.time - b.time;
         });
     }
+    
     createTable(arr);
 }
 
@@ -179,7 +159,6 @@ function changeDif(num) {
         $("#hard").css("color","#FFFFFF");
         $("#hard").css("border-color","#FFFFFF");
     } else if(num == 1) {
-
         $("#easy").css("color","#FFFFFF");
         $("#easy").css("border-color","#FFFFFF");
         $("#medium").css("color","#FFEB3B");
@@ -195,6 +174,7 @@ function changeDif(num) {
         $("#hard").css("color","#F44336");
         $("#hard").css("border-color","#F44336");
     }
+    index = num;
 }
 
 function changeDifText(num) {
@@ -225,4 +205,5 @@ function changeDifText(num) {
         $("#hardText").css("color","#F44336");
         $("#hardText").css("border-color","#F44336");
     }
+    index = num;
 }

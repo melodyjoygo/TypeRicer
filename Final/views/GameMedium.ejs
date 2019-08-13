@@ -9,13 +9,51 @@
     <script src="jquery-3.4.1.js"></script>
     <script src="medium.js"></script>
     <script src="jquery.js"></script>
+    <script src="bootstrap.js"></script>
+    <link rel="stylesheet" href="/scss/bootstrap.css">
     <script>
+        var id = "<%= id %>";
         var data = "<%= array %>";
+        var title = "<%= titles %>";
     </script>
     <link rel="stylesheet" href="GameStyle.css">
 </head>
 
-<body onload="setData(data)">
+<body onload="setData(id, data, title)">
+
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn btn-sm btn-danger" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                Are you sure you want to Give Up?
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <a href="/difficulty" id="logoutButton">
+                                    <input type="button" class="form-control form-control-sm" value="Yes">
+                                </a>
+                            </div>
+                            <div class="col">
+                                <input type="button" class="form-control form-control-sm " value="No"
+                                    data-dismiss="modal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="stage">
         <div id="countDown">
             <div id="count"></div>
@@ -28,6 +66,21 @@
         <input type="text" id="inputText" placeholder="Type Here" autocomplete="off">
 
         <div id="time"></div>
+
+        <a href="/difficulty" id="giveUp" data-toggle="modal" data-target="#modal">
+            <div id="giveText">
+                Give Up
+            </div>
+        </a>
+
+        <form action="endGame" method="post">
+            <input type="hidden" id="diff" name="diff">
+            <input type="hidden" id="wpm" name="wpm">
+            <input type="hidden" id="acc" name="acc">
+            <input type="hidden" id="timeConsumed" name="time">
+            <input type="hidden" id="textID" name="textID">
+            <button type="submit" id="end"></button>
+        </form>
 
         <div id="showStats">
             <ul id="statsList">
