@@ -30,17 +30,10 @@ document.addEventListener('keypress', function(e) {
     }
 })
 
-function setData(id, data, title) {
-    var temp1 = id.split("|");
-    var temp2 = data.split("|");
-    var temp3 = title.split("|");
-    for(var i = 0; i < temp1.length; i++) {
-        var obj = new Object();
-        obj.id = temp1[i].replace(/&#39;/g, "'");
-        obj.text = temp2[i].replace(/&#39;/g, "'");
-        obj.title = temp3[i].replace(/&#39;/g, "'");
-        list.push(obj);
-    }
+function setData(data) {
+    var temporary = data.replace(/&#39;/g, "'");
+    temporary = temporary.replace(/&#34;/g, "\"");
+    list = JSON.parse(temporary);
     start();
 }
 
@@ -141,7 +134,7 @@ function randomize(num) {
     time = num;
     while(temp == text) {
         index = Math.floor(Math.random() * list.length);
-        text = list[index].text;
+        text = list[index].texts;
         if(temp != text) {
             $("#mainText").text(text);
             $("#textTitle").text(list[index].title);
@@ -159,8 +152,5 @@ function randomize(num) {
 }
 
 function restart() {
-    $("#textTitle").text("");
-    $("#mainText").text("");
-    $("#time").css({'visibility':'hidden'});
-    start();
+    document.getElementById("restartButton").href="/game/easy";
 }

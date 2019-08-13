@@ -1,37 +1,13 @@
 var easyData = [], mediumData = [], hardData = [];
 var index = 0, table;
 
-function setData(easy, medium, hard) {
-    var temp1 = easy.split("|");
-    var temp2 = medium.split("|");
-    var temp3 = hard.split("|");
-    for(var i = 0; i < temp1.length; i++) {
-        var score = temp1[i].split(":");
-        var data = new Object();
-        data.username = score[0];
-        data.wpm = parseFloat(score[1]);
-        data.time = parseInt(score[2]);
-        data.acc = parseFloat(score[3]);
-        easyData.push(data);
-    }
-    for(var j = 0; j < temp2.length; j++) {
-        var score = temp2[j].split(":");
-        var data = new Object();
-        data.username = score[0];
-        data.wpm = parseFloat(score[1]);
-        data.time = parseInt(score[2]);
-        data.acc = parseFloat(score[3]);
-        mediumData.push(data);
-    }
-    for(var k = 0; k < temp3.length; k++) {
-        var score = temp3[k].split(":");
-        var data = new Object();
-        data.username = score[0];
-        data.wpm = parseFloat(score[1]);
-        data.time = parseInt(score[2]);
-        data.acc = parseFloat(score[3]);
-        hardData.push(data);
-    }
+function setData(data) {
+    var temporary = data.replace(/&#39;/g, "'");
+    temporary = temporary.replace(/&#34;/g, "\"");
+    list = JSON.parse(temporary);
+    easyData = list[0];
+    mediumData = list[1];
+    hardData = list[2];
     sort();
 }
 
@@ -56,11 +32,11 @@ function createTable(obj) {
             } else if (i == 1) {
                 tabCell.innerHTML = obj[x].username;
             } else if (i == 2) {
-                tabCell.innerHTML = obj[x].wpm;
+                tabCell.innerHTML = parseFloat(obj[x].wpm).toFixed(2);
             } else if (i == 3) {
-                tabCell.innerHTML = obj[x].acc + "%";
+                tabCell.innerHTML = parseFloat(obj[x].accuracy).toFixed(2) + "%";
             } else if (i == 4) {
-                tabCell.innerHTML = obj[x].time;
+                tabCell.innerHTML = parseInt(obj[x].time);
             }
         }
     }
@@ -70,14 +46,15 @@ function createTable(obj) {
     divContainer.appendChild(table);
 }
 
-function sort(type) {
+function sort() {
+    var type = $("#sort").val();
     var arr;
     if(index == 0) {
-        arr = easyData.splice(1, easyData.length);
+        arr = easyData;
     } else if(index == 1) {  
-        arr = mediumData.splice(1, mediumData.length);
+        arr = mediumData;
     } else if(index == 2) {
-        arr = hardData.splice(1, hardData.length);
+        arr = hardData;
     }
     if (type == "name") {
         arr.sort(function (a, b) {
@@ -175,6 +152,7 @@ function changeDif(num) {
         $("#hard").css("border-color","#F44336");
     }
     index = num;
+    sort();
 }
 
 function changeDifText(num) {

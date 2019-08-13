@@ -264,7 +264,7 @@ input:focus {
     font-size: 28px;
 }
 
-#postButton {
+#restartButton, #nextButton, #homeButton {
     width: auto;
     height: auto; 
     margin: 0px 50px 0px 50px;
@@ -400,7 +400,7 @@ input:focus {
 }
 
 @media all and (max-width:700px) {
-    #postButton{
+    #postButton {
         margin: 0px 20px 0px 20px;
         font-size: 20px;
     }

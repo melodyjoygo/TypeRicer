@@ -6,19 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TypeRicer | Profile</title>
-    <script src="jquery.js"></script>
-    <link rel="stylesheet" href="ProfileStyle.css">
-    <script src="bootstrap.js"></script>
+    <script src="/jquery.js"></script>
+    <link rel="stylesheet" href="/ProfileStyle.css">
+    <script src="/bootstrap.js"></script>
     <link rel="stylesheet" href="/scss/bootstrap.css">
-    <script src="profileFunction.js"></script>
+    <script src="/profileFunction.js"></script>
     <script>
-        var easy = "<%= easy %>";
-        var medium = "<%= medium %>";
-        var hard = "<%= hard %>";
+        var data = "<%= object %>";
     </script>
 </head>
 
-<body onload="setData(easy, medium, hard)">
+<body onload="setData(data)">
     <div class="modal" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -55,7 +53,7 @@
     <div id="stage">
         <div id="sideBar">
             <ul class="ButtonList">
-                <a href="/home" id="menu">
+                <a href="/typericer" id="menu">
                     <li>
                         <div id="menuText">
                             <p id="profileText">HOME</p>
@@ -64,7 +62,7 @@
                         </div>
                     </li>
                 </a>
-                <a href="/difficulty" id="menu">
+                <a href="/typericer/difficulty" id="menu">
                     <li>
                         <div id="menuText">
                             <p id="profileText">PLAY</p>
@@ -73,7 +71,7 @@
                         </div>
                     </li>
                 </a>
-                <a href="/ranking" id="menu">
+                <a href="/typericer/ranking" id="menu">
                     <li>
                         <div id="menuText">
                             <p id="profileText">RANKINGS</p>
@@ -82,7 +80,7 @@
                         </div>
                     </li>
                 </a>
-                <a href="/profile" id="menu">
+                <a href="/typericer/profile" id="menu">
                     <li>
                         <div id="menuText">
                             <p id="profileText" class="highlight">PROFILE</p>

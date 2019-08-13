@@ -6,20 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TypeRicer | Play</title>
-    <script src="jquery-3.4.1.js"></script>
-    <script src="hard.js"></script>
-    <script src="jquery.js"></script>
-    <script src="bootstrap.js"></script>
+    <script src="/jquery-3.4.1.js"></script>
+    <script src="/hard.js"></script>
+    <script src="/jquery.js"></script>
+    <script src="/bootstrap.js"></script>
     <link rel="stylesheet" href="/scss/bootstrap.css">
     <script>
-        var id = "<%= id %>";
-        var data = "<%= array %>";
-        var title = "<%= titles %>";
+        var data = "<%= object %>";
     </script>
-    <link rel="stylesheet" href="GameStyle.css">
+    <link rel="stylesheet" href="/GameStyle.css">
 </head>
 
-<body onload="setData(id, data, title)">
+<body onload="setData(data)">
 
     <div class="modal" id="modal">
         <div class="modal-dialog">
@@ -67,13 +65,13 @@
 
         <div id="time"></div>
 
-        <a href="/difficulty" id="giveUp" data-toggle="modal" data-target="#modal">
+        <a href="/typericer/difficulty" id="giveUp" data-toggle="modal" data-target="#modal">
             <div id="giveText">
                 Give Up
             </div>
         </a>
 
-        <form action="endGame" method="post">
+        <form action="/game/endGame" method="post">
             <input type="hidden" id="diff" name="diff">
             <input type="hidden" id="wpm" name="wpm">
             <input type="hidden" id="acc" name="acc">
@@ -99,19 +97,19 @@
             </ul>
 
             <ul id="buttonList">
-                <a href="#" id="postButton" onclick="restart()">
+                <a href="#" id="restartButton" onclick="restart()">
                     <li id="btnText">
                         Restart
                     </li>
                 </a>
 
-                <a href="/difficulty" id="postButton">
+                <a href="/typericer/difficulty" id="nextButton">
                     <li id="btnText">
                         Change Difficulty
                     </li>
                 </a>
 
-                <a href="/home" id="postButton">
+                <a href="/typericer" id="homeButton">
                     <li id="btnText">
                         Home
                     </li>

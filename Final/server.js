@@ -4,7 +4,6 @@ const urlencoder = bodyParser.urlencoded({
     extended: true
 })
 const cookieParser = require("cookie-parser");
-const expressValidator = require("express-validator");
 const session = require("express-session");
 const path = require("path");
 var app = new express();

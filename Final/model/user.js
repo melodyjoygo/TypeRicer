@@ -16,15 +16,15 @@ exports.getUser = function(name) {
 }
 
 exports.getEasy = function(name) {
-    return database.query("SELECT wpm, time, accuracy FROM users INNER JOIN easy ON easy.idusers = users.idusers WHERE users.username = ?", [name]);
+    return database.query("SELECT AVG(wpm) AS wpm, AVG(time) as time, AVG(accuracy) AS accuracy FROM users INNER JOIN easy ON easy.idusers = users.idusers WHERE users.username = ?", [name]);
 }
 
 exports.getMedium = function(name) {
-    return database.query("SELECT wpm, time, accuracy FROM users INNER JOIN medium ON medium.idusers = users.idusers WHERE users.username = ?", [name]);
+    return database.query("SELECT AVG(wpm) AS wpm, AVG(time) as time, AVG(accuracy) AS accuracy FROM users INNER JOIN medium ON medium.idusers = users.idusers WHERE users.username = ?", [name]);
 }
 
 exports.getHard = function(name) {
-    return database.query("SELECT wpm, time, accuracy FROM users INNER JOIN hard ON hard.idusers = users.idusers WHERE users.username = ?", [name]);
+    return database.query("SELECT AVG(wpm) AS wpm, AVG(time) as time, AVG(accuracy) AS accuracy FROM users INNER JOIN hard ON hard.idusers = users.idusers WHERE users.username = ?", [name]);
 }
 
 exports.updateGamePlayed = function(idusers) {

@@ -38,11 +38,11 @@ function change(num) {
 
 function startGame() {
     if(level == 0) {
-        document.getElementById("startBox").href="/easy";
+        document.getElementById("startBox").href="/game/easy";
     } else if(level == 1) {
-        document.getElementById("startBox").href="/medium";
+        document.getElementById("startBox").href="/game/medium";
     } else if(level == 2) {
-        document.getElementById("startBox").href="/hard";
+        document.getElementById("startBox").href="/game/hard";
     }
     return true;
 }

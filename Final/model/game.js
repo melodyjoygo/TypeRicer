@@ -28,13 +28,13 @@ exports.updateRank = function(textID) {
 }
 
 exports.getEasy = function() {
-    return database.query("SELECT username, wpm, time, accuracy FROM easy INNER JOIN users ON easy.idusers = users.idusers");
+    return database.query("SELECT username, wpm, time, accuracy FROM easy INNER JOIN users ON easy.idusers = users.idusers WHERE username != 'guest'");
 }
 
 exports.getMedium = function() {    
-    return database.query("SELECT username, wpm, time, accuracy FROM medium INNER JOIN users ON medium.idusers = users.idusers");
+    return database.query("SELECT username, wpm, time, accuracy FROM medium INNER JOIN users ON medium.idusers = users.idusers WHERE username != 'guest'");
 }
 
 exports.getHard = function() {  
-    return database.query("SELECT username, wpm, time, accuracy FROM hard INNER JOIN users ON hard.idusers = users.idusers");
+    return database.query("SELECT username, wpm, time, accuracy FROM hard INNER JOIN users ON hard.idusers = users.idusers WHERE username != 'guest'");
 }

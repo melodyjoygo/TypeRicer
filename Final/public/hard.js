@@ -40,17 +40,10 @@ document.addEventListener('keypress', function(e) {
     }
 })
 
-function setData(id, data, title) {
-    var temp1 = id.split("|");
-    var temp2 = data.split("|");
-    var temp3 = title.split("|");
-    for(var i = 0; i < temp1.length; i++) {
-        var obj = new Object();
-        obj.id = temp1[i].replace(/&#39;/g, "'");
-        obj.text = temp2[i].replace(/&#39;/g, "'");
-        obj.title = temp3[i].replace(/&#39;/g, "'");
-        list.push(obj);
-    }
+function setData(data) {
+    var temporary = data.replace(/&#39;/g, "'");
+    temporary = temporary.replace(/&#34;/g, "\"");
+    list = JSON.parse(temporary);
     start();
 }
 
@@ -152,7 +145,7 @@ function randomize(num) {
     error = 0;
     time = num;
     index = Math.floor(Math.random() * list.length);
-    var str = list[index].text.split(" ");
+    var str = list[index].texts.split(" ");
     text = '';
     for(var i = 0; i < str.length; i++) {
         text += (shuffle(str[i].split('')).join(''));
@@ -177,8 +170,5 @@ function shuffle(array) {
 }
 
 function restart() {
-    $("#textTitle").text("");
-    $("#mainText").text("");
-    $("#time").css({'visibility':'hidden'});
-    start();
+    document.getElementById("restartButton").href="/game/hard";
 }
