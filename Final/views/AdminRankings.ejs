@@ -11,14 +11,14 @@
     <script>
         var data = "<%= object %>";
     </script>
-    <link rel="stylesheet" href="/LeaderboardStyle.css">
+    <link rel="stylesheet" href="/AdminLeaderboardStyle.css">
 </head>
 
 <body onload="setData(data)">
     <div id="stage">
         <div id="sideBar">
             <ul class="ButtonList">
-                <a href="/typericer" id="menu">
+                <a href="/admin" id="menu">
                     <li>
                         <div id="menuText">
                             <p id="profileText">HOME</p>
@@ -27,16 +27,16 @@
                         </div>
                     </li>
                 </a>
-                <a href="/typericer/difficulty" id="menu">
+                <a href="/admin/database" id="menu">
                     <li>
                         <div id="menuText">
-                            <p id="profileText">PLAY</p>
-                            <img src="/Media/play-button.png" id="profilePic">
+                            <p id="profileText" >DATABASE</p>
+                            <img src="/Media/database.png" id="profilePic">
                             <div id="menuLine"></div>
                         </div>
                     </li>
                 </a>
-                <a href="/typericer/ranking" id="menu">
+                <a href="/admin/ranking" id="menu">
                     <li>
                         <div id="menuText">
                             <p id="profileText" class="highlight">RANKINGS</p>
@@ -45,11 +45,11 @@
                         </div>
                     </li>
                 </a>
-                <a href="/typericer/profile" id="menu">
+                <a href="/logout" id="menu" class="log" data-toggle="modal" data-target="#modal">
                     <li>
                         <div id="menuText">
-                            <p id="profileText">PROFILE</p>
-                            <img src="/Media/avatar.png" id="profilePic">
+                            <p id="profileText">LOGOUT</p>
+                            <img src="/Media/logout.png" id="profilePic">
                             <div id="menuLine"></div>
                         </div>
                     </li>

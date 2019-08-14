@@ -35,7 +35,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#menu {
+#menu { 
     width: auto;
     height: auto;
     position: relative;
@@ -43,10 +43,23 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 2px;
     text-decoration: none;
-    margin: 20px 0px 20px 0px;
     transform: rotate(0deg);
+    border-style: solid;
+    border-color: transparent;
+    margin: 20px 0px 20px 0px;
+    padding: 10px 5px 10px 5px;
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+#menu:hover{
+    border-color: #03DAC6;
+    
+}
+
+#profileText {
+    margin: 0px 0px 20px 0px;
 }
 
 #menuText {
@@ -101,7 +114,7 @@ body {
     align-items: center;
 }
 
-#sideBar {
+#sideBar {  
     height: 100%;
     width: 150px;
     left: 0px;
@@ -234,7 +247,7 @@ input:focus {
 }
 
 #menu.logout {
-    width: 90px;
+    width: auto;
     display: block;
     left: 50%;
     top: 40%;
@@ -243,9 +256,18 @@ input:focus {
     align-content: center;
     justify-content: center;
     text-align: center;
+    border-style: solid;
+    border-color: transparent;
     margin: 0px;
-    padding: 0px;
+    padding: 10px 20px 10px 20px;
+    border-width: 2px;
+    border-radius: 20px;
     background-color: transparent;
+}
+
+#menu.logout:hover{
+    border-style: solid;
+    border-color: #F44336;
 }
 
 .highlight {

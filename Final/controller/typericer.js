@@ -5,8 +5,12 @@ const User = require("../model/user");
 const Game = require("../model/game"); 
 
 router.get("/", (req, res) => {
-    if(req.session.username) {
-        res.render('Home');
+    if(req.cookies) {
+        if(req.session.username || req.cookies.username) {
+            res.render('Home');
+        } else {
+            res.render('Login');
+        }
     } else {
         res.render('Login');
     }
@@ -15,7 +19,7 @@ router.get("/difficulty", (req, res) => {
     res.render('Difficulty');
 })
 router.get("/profile", (req, res) => {
-    if(req.session.username != undefined) {
+    if(req.cookies.username) {
         Promise.resolve(User.getUser(req.session.username)).then(function(profile) {
             Promise.resolve(User.getEasy(req.session.username)).then(function(easy) {
                 Promise.resolve(User.getMedium(req.session.username)).then(function(medium) {

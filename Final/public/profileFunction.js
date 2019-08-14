@@ -37,7 +37,9 @@ var list = [];
 
 function changeData() {
     if(parseFloat(list[index + 1][0].wpm) == undefined) {
-        
+        wpm = (0).toFixed(2);
+        time = (0).toFixed(2);
+        acc = (0).toFixed(2);        
     }
     wpm = parseFloat(list[index + 1][0].wpm).toFixed(2);
     time = parseFloat(list[index + 1][0].time).toFixed(2);
