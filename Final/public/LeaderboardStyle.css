@@ -27,7 +27,7 @@ body {
     position: absolute;
 }
 
-#menu {
+#menu { 
     width: auto;
     height: auto;
     position: relative;
@@ -35,10 +35,23 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 2px;
     text-decoration: none;
-    margin: 10px 0px 10px 0px;
     transform: rotate(0deg);
+    border-style: solid;
+    border-color: transparent;
+    margin: 20px 0px 20px 0px;
+    padding: 10px 5px 10px 5px;
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+#menu:hover{
+    border-color: #03DAC6;
+    
+}
+
+#profileText {
+    margin: 0px 0px 20px 0px;
 }
 
 #menuText {
@@ -93,7 +106,7 @@ body {
     align-items: center;
 }
 
-#sideBar {
+#sideBar {  
     height: 100%;
     width: 150px;
     left: 0px;
@@ -302,24 +315,6 @@ select:focus{
     visibility: hidden;
 }
 
-#difficultyListText {
-    padding: 10px;
-    margin: 0px;
-    width: auto;
-    height: auto;
-    list-style: none;
-    position: relative;
-    flex-direction: row;
-    display: flex;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -30%);
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    visibility: hidden;
-}
-
 #difButtons {
     margin: 10px;
     /* left: 50%;
@@ -353,27 +348,6 @@ select:focus{
     border-color: white;
 }
 
-#easyText,
-#mediumText,
-#hardText {
-    width: auto;
-    height: 50px;
-    position: relative;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    font-family: 'Raleway';
-    font-size: 28px;
-
-    background-color: transparent;
-    border-style: solid;
-    border-width: 0px 0px 3px 0px;
-    border-color: white;
-}
-
-
 button:focus,
 input:focus {
     outline: none;
@@ -395,15 +369,4 @@ input:focus {
     border-color: white;
     text-decoration: none;
     visibility: hidden;
-
-}
-
-#sortTextText{
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-}
-
-#sortTextText, #sortText, #difficultyListText{
-    position: absolute;
 }

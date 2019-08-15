@@ -1,37 +1,13 @@
 var easyData = [], mediumData = [], hardData = [];
 var index = 0, table;
 
-function setData(easy, medium, hard) {
-    var temp1 = easy.split("|");
-    var temp2 = medium.split("|");
-    var temp3 = hard.split("|");
-    for(var i = 0; i < temp1.length; i++) {
-        var score = temp1[i].split(":");
-        var data = new Object();
-        data.username = score[0];
-        data.wpm = parseFloat(score[1]);
-        data.time = parseInt(score[2]);
-        data.acc = parseFloat(score[3]);
-        easyData.push(data);
-    }
-    for(var j = 0; j < temp2.length; j++) {
-        var score = temp2[j].split(":");
-        var data = new Object();
-        data.username = score[0];
-        data.wpm = parseFloat(score[1]);
-        data.time = parseInt(score[2]);
-        data.acc = parseFloat(score[3]);
-        mediumData.push(data);
-    }
-    for(var k = 0; k < temp3.length; k++) {
-        var score = temp3[k].split(":");
-        var data = new Object();
-        data.username = score[0];
-        data.wpm = parseFloat(score[1]);
-        data.time = parseInt(score[2]);
-        data.acc = parseFloat(score[3]);
-        hardData.push(data);
-    }
+function setData(data) {
+    var temporary = data.replace(/&#39;/g, "'");
+    temporary = temporary.replace(/&#34;/g, "\"");
+    list = JSON.parse(temporary);
+    easyData = list[0];
+    mediumData = list[1];
+    hardData = list[2];
     sort();
 }
 
@@ -56,11 +32,11 @@ function createTable(obj) {
             } else if (i == 1) {
                 tabCell.innerHTML = obj[x].username;
             } else if (i == 2) {
-                tabCell.innerHTML = obj[x].wpm;
+                tabCell.innerHTML = parseFloat(obj[x].wpm).toFixed(2);
             } else if (i == 3) {
-                tabCell.innerHTML = obj[x].acc + "%";
+                tabCell.innerHTML = parseFloat(obj[x].accuracy).toFixed(2) + "%";
             } else if (i == 4) {
-                tabCell.innerHTML = obj[x].time;
+                tabCell.innerHTML = parseInt(obj[x].time);
             }
         }
     }
@@ -70,14 +46,15 @@ function createTable(obj) {
     divContainer.appendChild(table);
 }
 
-function sort(type) {
+function sort() {
+    var type = $("#sort").val();
     var arr;
     if(index == 0) {
-        arr = easyData.splice(1, easyData.length);
+        arr = easyData;
     } else if(index == 1) {  
-        arr = mediumData.splice(1, mediumData.length);
+        arr = mediumData;
     } else if(index == 2) {
-        arr = hardData.splice(1, hardData.length);
+        arr = hardData;
     }
     if (type == "name") {
         arr.sort(function (a, b) {
@@ -145,65 +122,4 @@ function change(num) {
         $("#hardText").css("color","#FFFFFF");
         $("#hardText").css("border-color","#FFFFFF");
     }
-}
-
-function changeDif(num) {
-    $("#sortText").css("visibility","hidden");
-    $("#sort").css("visibility","visible");
-    $("#showData").css("visibility","visible");
-    if(num == 0) {
-        $("#easy").css("color","#4CAF50");
-        $("#easy").css("border-color","#4CAF50");
-        $("#medium").css("color","#FFFFFF");
-        $("#medium").css("border-color","#FFFFFF");
-        $("#hard").css("color","#FFFFFF");
-        $("#hard").css("border-color","#FFFFFF");
-    } else if(num == 1) {
-        $("#easy").css("color","#FFFFFF");
-        $("#easy").css("border-color","#FFFFFF");
-        $("#medium").css("color","#FFEB3B");
-        $("#medium").css("border-color","#FFEB3B");
-        $("#hard").css("color","#FFFFFF");
-        $("#hard").css("border-color","#FFFFFF");
-
-    } else if(num == 2) {
-        $("#easy").css("color","#FFFFFF");
-        $("#easy").css("border-color","#FFFFFF");
-        $("#medium").css("color","#FFFFFF");
-        $("#medium").css("border-color","#FFFFFF");
-        $("#hard").css("color","#F44336");
-        $("#hard").css("border-color","#F44336");
-    }
-    index = num;
-}
-
-function changeDifText(num) {
-    $("#sortTextText").css("visibility","visible");
-    $("#sortText").css("visibility","visible");
-    $("#showData").css("visibility","visible");
-    if(num == 0) {
-        $("#easyText").css("color","#4CAF50");
-        $("#easyText").css("border-color","#4CAF50");
-        $("#mediumText").css("color","#FFFFFF");
-        $("#mediumText").css("border-color","#FFFFFF");
-        $("#hardText").css("color","#FFFFFF");
-        $("#hardText").css("border-color","#FFFFFF");
-    } else if(num == 1) {
-
-        $("#easyText").css("color","#FFFFFF");
-        $("#easyText").css("border-color","#FFFFFF");
-        $("#mediumText").css("color","#FFEB3B");
-        $("#mediumText").css("border-color","#FFEB3B");
-        $("#hardText").css("color","#FFFFFF");
-        $("#hardText").css("border-color","#FFFFFF");
-
-    } else if(num == 2) {
-        $("#easyText").css("color","#FFFFFF");
-        $("#easyText").css("border-color","#FFFFFF");
-        $("#mediumText").css("color","#FFFFFF");
-        $("#mediumText").css("border-color","#FFFFFF");
-        $("#hardText").css("color","#F44336");
-        $("#hardText").css("border-color","#F44336");
-    }
-    index = num;
 }
