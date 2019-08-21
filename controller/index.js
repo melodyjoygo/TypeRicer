@@ -51,7 +51,7 @@ router.get("/guest", (req, res) => {
         res.clearCookie("username");
         res.clearCookie("password");
         res.redirect("/typericer");
-    })
+    }).catch();
 })
 router.get("/", (req, res) => {
     res.redirect("/typericer");
