@@ -17,7 +17,7 @@ class Database {
                     return reject(err);
                 resolve(rows);
             });
-        }).catch(e);
+        }).catch();
     }
     close() {
         return new Promise( ( resolve, reject ) => {
