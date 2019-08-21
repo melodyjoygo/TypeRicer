@@ -30,19 +30,15 @@ router.post("/login", (req, res) => {
             res.redirect("/typericer")
         }
     } else {
-        Promise.resolve(User.validate(req.body.un, req.body.pw)).then(function(value) {
-            if(value != '') {
-                req.session.username = value[0].username;
-                req.session.password = value[0].password;            
-                res.cookie("username", req.session.username, {
-                    maxAge: 10*60*60*1000
-                })
-                res.cookie("password", req.session.password, {
-                    maxAge: 10*60*60*1000
-                })
-            } 
-            res.redirect("/typericer");
+        req.session.username = req.body.un;
+        req.session.password = req.body.pw;            
+        res.cookie("username", req.session.username, {
+            maxAge: 10*60*60*1000
         })
+        res.cookie("password", req.session.password, {
+            maxAge: 10*60*60*1000
+        })
+        res.redirect("/typericer");
     }
 })
 router.get("/guest", (req, res) => {

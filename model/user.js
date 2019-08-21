@@ -7,10 +7,6 @@ exports.create = function(name, password) {
     })
 }
 
-exports.validate = function(name, password) {
-    return database.query("SELECT * FROM users WHERE users.username = ? AND users.password = ?", [name, password]);
-}
-
 exports.getUser = function(name) {
     return database.query("SELECT * FROM users WHERE users.username = ?", [name]);
 }
@@ -31,4 +27,8 @@ exports.updateGamePlayed = function(idusers) {
     Promise.resolve(database.query("SELECT gamesplayed AS 'count' FROM users WHERE idusers = ?", [idusers])).then(function(value) {
         database.query("UPDATE users SET gamesplayed = ? WHERE idusers = ?", [(value[0].count + 1), idusers]);
     })
+}
+
+exports.getAllUser = function() {
+    return database.query("SELECT * FROM users");
 }

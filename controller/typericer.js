@@ -9,7 +9,11 @@ router.get("/", (req, res) => {
         if(req.session.username || req.cookies.username) {
             res.render('Home');
         } else {
-            res.render('Login');
+            Promise.resolve(User.getAllUser()).then(function(value) {
+                res.render('Login', {
+                    object : JSON.stringify(value)
+                });
+            })
         }
     } else {
         res.render('Login');

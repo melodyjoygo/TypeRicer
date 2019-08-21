@@ -40,7 +40,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    top: 50%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -220,20 +220,29 @@ input:focus {
     }
 }
 
+#errorText{
+    width: 282px;
+    background-color: transparent;
+    color: #F44336;
+    font-family: 'Raleway';
+    font-size: 20px;
+    position: relative;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+
+#submit, #errorText {
+    visibility: hidden;
+}
+
 @media all and (max-width:680px) {
-
-    #errorText{
-        width: 282px;
-        background-color: transparent;
-        color: #F44336;
-        font-family: 'Raleway';
-        font-size: 20px;
-        position: relative;
-        top: 40%;
+    #errorText {
+        top: 53%;
         left: 50%;
-        transform: translate(-50%, -40%);
+        transform: translate(-50%, -53%);
     }
-
+    
     #type {
         width: 200px;
         height: auto;

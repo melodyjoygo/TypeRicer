@@ -10,10 +10,15 @@
     <script src="/jquery.js"></script>
     <link rel="stylesheet" href="/LoginStyle.css">
     <script src="/bootstrap.js"></script>
+    <script src="login.js"></script>
     <link rel="stylesheet" href="/scss/bootstrap.css">
+
+    <script>
+        var object = "<%= object %>";
+    </script>
 </head>
 
-<body>
+<body onload="loadUsers(object)">
     <div class="modal" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -66,16 +71,15 @@
         </div>
         <div id="center">
             
-            <div id="errorText">
-                Username/Password is Invalid
-            </div>
+            <div id="errorText">Username/Password is Invalid</div>
 
             <form action="/login" method="post" id="formCenter">
                 <input type="text" name="un" id="username" placeholder="Username" autocomplete="off">
                 <input type="password" name="pw" id="password" placeholder="Password" autocomplete="off">
 
-                <input type="submit" value="Login" id="loginBtn">
+                <input type="button" value="Login" id="loginBtn" onclick="validateUser()">
                 <input type="button" value="Sign Up" id="signupBtn" data-toggle="modal" data-target="#modal">
+                <input type="submit" id="submit">
 
                 <a href="/guest" id="aGuest">
                     <input type="button" value="Login as Guest" id="guestBtn">
