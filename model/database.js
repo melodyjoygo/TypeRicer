@@ -16,11 +16,11 @@ class Database {
                 if (err)
                     return reject(err);
                 resolve(rows);
-            }).then((result) => {
+            })
+        }).then((result) => {
 
-            }).catch((error) => {
-
-            });
+        }).catch((error) => {
+            
         })
     }
     close() {
