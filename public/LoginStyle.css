@@ -222,6 +222,18 @@ input:focus {
 
 @media all and (max-width:680px) {
 
+    #errorText{
+        width: 282px;
+        background-color: transparent;
+        color: #F44336;
+        font-family: 'Raleway';
+        font-size: 20px;
+        position: relative;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+    }
+
     #type {
         width: 200px;
         height: auto;
