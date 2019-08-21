@@ -19,10 +19,8 @@ $(document).ready(function() {
 })
 
 function loadUsers(data) {
-    console.log(data);
     var temporary = data.replace(/&#34;/g, "\"");
     list = JSON.parse(temporary);
-    console.log(list);
 }
 
 function validateUser() {
