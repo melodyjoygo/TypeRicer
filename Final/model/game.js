@@ -23,10 +23,6 @@ exports.submitData = function(idusers, wpm, time, acc, diff) {
     }
 }
 
-exports.updateRank = function(textID) {
-    
-}
-
 exports.getEasy = function() {
     return database.query("SELECT username, wpm, time, accuracy FROM easy INNER JOIN users ON easy.idusers = users.idusers WHERE username != 'guest'");
 }

@@ -19,7 +19,26 @@ router.get("/difficulty", (req, res) => {
     res.render('Difficulty');
 })
 router.get("/profile", (req, res) => {
-    if(req.cookies.username) {
+    if(req.session.username != 'guest' && req.cookies.username) {
+        Promise.resolve(User.getUser(req.cookies.username)).then(function(profile) {
+            Promise.resolve(User.getEasy(req.cookies.username)).then(function(easy) {
+                Promise.resolve(User.getMedium(req.cookies.username)).then(function(medium) {
+                    Promise.resolve(User.getHard(req.cookies.username)).then(function(hard) {
+                        var data = [];
+                        data.push(profile);
+                        data.push(easy);
+                        data.push(medium);
+                        data.push(hard);
+                        res.render('Profile', {
+                            name : profile[0].username,
+                            game : profile[0].gamesplayed,
+                            object : JSON.stringify(data)
+                        });
+                    })
+                })
+            })
+        })
+    } else if(req.session.username == 'guest') {
         Promise.resolve(User.getUser(req.session.username)).then(function(profile) {
             Promise.resolve(User.getEasy(req.session.username)).then(function(easy) {
                 Promise.resolve(User.getMedium(req.session.username)).then(function(medium) {

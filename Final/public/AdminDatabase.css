@@ -73,6 +73,10 @@ body {
     background-color: transparent;
 }
 
+#add:hover{
+    border-color: #03DAC6;
+}
+
 #menu:hover {
     border-color: #03DAC6;
 
@@ -159,19 +163,111 @@ body {
 #title{
     color: #BB86FC;
     font-family: 'Stolzl';
-    font-size: 32px;
+    font-size: 48px;
     width: 150px;
     height: 30px;
     position: relative;
     display: flex;
     left: 50%;
-    top: 15%;
-    transform: translate(-50%,-15%);
+    top: 10%;
+    transform: translate(-50%,-10%);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     letter-spacing: 1px;
     text-align: center
+}
+
+#textButton{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border-style: none;
+    color: white;
+    text-align: left;
+}
+
+#textButton:hover {
+    color: yellow;
+}
+
+#tableHeader,
+td,
+p,
+input {
+    font: 18px 'Raleway';
+    
+}
+
+#tableHeader {
+    width: 250px;
+    height: 30px;
+    font-weight: bold;
+    /* border: solid 1px white; */
+    padding: 2px 3px;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 20px;
+    top: 40px;
+    /* left: 400px;
+    top: 100px; */
+}
+
+td {
+    width: 250px;
+    height: 30px;
+    border-style: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: white;
+    padding: 7px;
+    text-align: center;
+    color: white;
+    position: relative;
+    /* left: 400px;
+    top: 100px; */
+}
+
+select:focus {
+    outline: none;
+}
+
+#showData {
+    width: auto;
+    height: 280px;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    visibility: visible;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    top: 80px;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;   
+}
+
+#addData, #deleteData, #updateData {
+    visibility: hidden;
+}
+
+#table {
+    width: 250px;
+    height: auto;
+    position: relative;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 }
 
 @media all and (max-width:430px) {

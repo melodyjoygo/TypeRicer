@@ -36,14 +36,15 @@ var wpm, time, acc;
 var list = [];
 
 function changeData() {
-    if(parseFloat(list[index + 1][0].wpm) == undefined) {
+    if(list[index + 1][0].wpm == null) {
         wpm = (0).toFixed(2);
-        time = (0).toFixed(2);
-        acc = (0).toFixed(2);        
+        time = "00:00";
+        acc = (0).toFixed(2) + "%";        
+    } else {
+        wpm = parseFloat(list[index + 1][0].wpm).toFixed(2);
+        time = digits(Math.trunc(parseInt(list[index + 1][0].time)/60)) + ":" + digits(parseInt(list[index + 1][0].time) % 60);
+        acc = parseFloat(list[index + 1][0].accuracy).toFixed(2) + "%";
     }
-    wpm = parseFloat(list[index + 1][0].wpm).toFixed(2);
-    time = parseFloat(list[index + 1][0].time).toFixed(2);
-    acc = parseFloat(list[index + 1][0].accuracy).toFixed(2);
 }
 
 function setData(data) {

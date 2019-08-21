@@ -8,7 +8,7 @@ function setData(data) {
     easyData = list[0];
     mediumData = list[1];
     hardData = list[2];
-    sort();
+    changeDif(0);
 }
 
 function createTable(obj) {
@@ -36,7 +36,7 @@ function createTable(obj) {
             } else if (i == 3) {
                 tabCell.innerHTML = parseFloat(obj[x].accuracy).toFixed(2) + "%";
             } else if (i == 4) {
-                tabCell.innerHTML = parseInt(obj[x].time);
+                tabCell.innerHTML = digits(Math.trunc(parseInt(parseInt(obj[x].time)/60)) + ":" + digits(parseInt(obj[x].time) % 60));
             }
         }
     }
@@ -44,6 +44,10 @@ function createTable(obj) {
     var divContainer = document.getElementById("showData");
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
+}
+
+function digits(num) {
+    return num > 9 ? "" + num: "0" + num;
 }
 
 function sort() {
@@ -122,4 +126,35 @@ function change(num) {
         $("#hardText").css("color","#FFFFFF");
         $("#hardText").css("border-color","#FFFFFF");
     }
+}
+
+function changeDif(num) {
+    $("#sortText").css("visibility","hidden");
+    $("#sort").css("visibility","visible");
+    $("#showData").css("visibility","visible");
+    if(num == 0) {
+        $("#easy").css("color","#4CAF50");
+        $("#easy").css("border-color","#4CAF50");
+        $("#medium").css("color","#FFFFFF");
+        $("#medium").css("border-color","#FFFFFF");
+        $("#hard").css("color","#FFFFFF");
+        $("#hard").css("border-color","#FFFFFF");
+    } else if(num == 1) {
+        $("#easy").css("color","#FFFFFF");
+        $("#easy").css("border-color","#FFFFFF");
+        $("#medium").css("color","#FFEB3B");
+        $("#medium").css("border-color","#FFEB3B");
+        $("#hard").css("color","#FFFFFF");
+        $("#hard").css("border-color","#FFFFFF");
+
+    } else if(num == 2) {
+        $("#easy").css("color","#FFFFFF");
+        $("#easy").css("border-color","#FFFFFF");
+        $("#medium").css("color","#FFFFFF");
+        $("#medium").css("border-color","#FFFFFF");
+        $("#hard").css("color","#F44336");
+        $("#hard").css("border-color","#F44336");
+    }
+    index = num;
+    sort();
 }

@@ -207,7 +207,7 @@ td {
     border-width: 0px 0px 3px 0px;
     border-color: white;
     text-decoration: none;
-    visibility: hidden;
+    visibility: visible;
 
 }
 
@@ -217,13 +217,23 @@ select:focus{
 
 #showData{
     width: auto;
-    height: auto;
+    height: 250px;
     position: relative;
     justify-content: center;
     align-content: center;
     text-align: center;
-    visibility: hidden;
+    visibility: visible;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;   
 }
 
 #table{
@@ -312,7 +322,7 @@ select:focus{
     align-content: center;
     justify-content: center;
     text-align: center;
-    visibility: hidden;
+    visibility: visible;
 }
 
 #difButtons {
