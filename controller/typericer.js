@@ -16,7 +16,11 @@ router.get("/", (req, res) => {
             })
         }
     } else {
-        res.render('Login');
+        Promise.resolve(User.getAllUser()).then(function(value) {
+            res.render('Login', {
+                object : JSON.stringify(value)
+            });
+        })
     }
 })
 router.get("/difficulty", (req, res) => {
