@@ -7,12 +7,12 @@ const Game = require("../model/game");
 router.get("/", (req, res) => {
     if(req.cookies) {
         if(req.session.username || req.cookies.username) {
-            res.render('Home.ejs');
+            res.render('Home');
         } else {
-            res.render('Login.ejs');
+            res.render('Login');
         }
     } else {
-        res.render('Login.ejs');
+        res.render('Login');
     }
 })
 router.get("/difficulty", (req, res) => {
