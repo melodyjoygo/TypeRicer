@@ -17,8 +17,7 @@ $(document).ready(function() {
 })
 
 function loadUsers(data) {
-    var temporary = data.replace(/&#39;/g, "'");
-    temporary = temporary.replace(/&#34;/g, "\"");
+    var temporary = data.replace(/&#34;/g, "\"");
     list = JSON.parse(temporary);
 }
 
