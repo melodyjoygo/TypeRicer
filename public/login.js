@@ -11,6 +11,7 @@ $(document).ready(function() {
         if(list.find(el => el.username == name && el.password == pass) == undefined) {
             e.preventDefault();
             $("#errorText").css({'visibility':'visible'});
+            $("#password").val("");
         }
     })
 })
