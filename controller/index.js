@@ -46,16 +46,12 @@ router.post("/login", (req, res) => {
     }
 })
 router.get("/guest", (req, res) => {
-    try {
-        Promise.resolve(User.getUser('guest')).then(function(value) {
-            req.session.username = value[0].username;
-            res.clearCookie("username");
-            res.clearCookie("password");
-            res.redirect("/typericer");
-        })
-    } catch(err) {
-        
-    }
+    Promise.resolve(User.getUser('guest')).then(function(value) {
+        req.session.username = value[0].username;
+        res.clearCookie("username");
+        res.clearCookie("password");
+        res.redirect("/typericer");
+    })
 })
 router.get("/", (req, res) => {
     res.redirect("/typericer");
