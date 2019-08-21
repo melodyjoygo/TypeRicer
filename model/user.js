@@ -12,7 +12,7 @@ exports.validate = function(name, password) {
 }
 
 exports.getUser = function(name) {
-    return database.query("SELECT * FROM users WHERE users.username = ?", [name]).then(value => database.close()).catch(err => {});
+    return database.query("SELECT * FROM users WHERE users.username = ?", [name]);
 }
 
 exports.getEasy = function(name) {
