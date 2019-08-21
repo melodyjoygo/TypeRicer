@@ -8,10 +8,12 @@ $(document).ready(function() {
     $("#formCenter").submit(function(e) {
         var name = $("#username").val();
         var pass = $("#password").val();
-        if(list.find(el => el.username == name && el.password == pass) == undefined) {
-            e.preventDefault();
-            $("#errorText").css({'visibility':'visible'});
-            $("#password").val("");
+        if(name != "admin" && pass != "admin") {
+            if(list.find(el => el.username == name && el.password == pass) == undefined) {
+                e.preventDefault();
+                $("#errorText").css({'visibility':'visible'});
+                $("#password").val("");
+            }
         }
     })
 })
