@@ -26,6 +26,6 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(require("./controller"));
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Server is running at port 3000...");
 })
