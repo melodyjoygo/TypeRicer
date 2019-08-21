@@ -43,6 +43,7 @@ router.post("/login", (req, res) => {
 })
 router.get("/guest", (req, res) => {
     Promise.resolve(User.getUser('guest')).then(function(value) {
+        console.log(value);
         req.session.username = value[0].username;
         res.clearCookie("username");
         res.clearCookie("password");
