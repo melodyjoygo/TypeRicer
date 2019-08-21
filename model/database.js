@@ -10,18 +10,17 @@ class Database {
             database: 'typericer'
         });
     }
-    query( sql, args ) {
-        return new Promise((resolve, reject) => {
-            this.connection.query(sql, args, (err, rows) => {
-                if (err)
-                    return reject(err);
-                resolve(rows);
-            })
-        }).then((result) => {
-
-        }).catch((error) => {
-            
-        })
+    async query( sql, args ) {
+        try {
+            const result = await new Promise((resolve, reject) => {
+                this.connection.query(sql, args, (err, rows) => {
+                    if (err)
+                        return reject(err);
+                    resolve(rows);
+                });
+            });
+        }
+        catch (error) { }
     }
     close() {
         return new Promise((resolve, reject ) => {
