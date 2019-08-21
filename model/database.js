@@ -12,16 +12,12 @@ class Database {
     }
     query( sql, args ) {
         return new Promise( ( resolve, reject ) => {
-            try {
-                this.connection.query( sql, args, ( err, rows ) => {
-                    if ( err )
-                        return reject( err );
-                    
-                    resolve( rows );
-                });
-            } catch(err) {
+            this.connection.query( sql, args, ( err, rows ) => {
+                if ( err )
+                    return reject( err );
                 
-            }
+                resolve( rows );
+            });
         });
     }
     close() {
