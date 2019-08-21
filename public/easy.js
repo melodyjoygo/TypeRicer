@@ -114,7 +114,6 @@ function finish() {
     $("#timeConsumed").val(time);
     $("#textID").val(list[index].id);
     $("#diff").val(0);
-    $("#end").click();
 }
 
 function getTime(num) {
@@ -152,5 +151,22 @@ function randomize(num) {
 }
 
 function restart() {
-    document.getElementById("restartButton").href="/game/easy";
+    $("#end").click();
+    setTimeout(function() {
+        window.location.href="/game/easy";
+    }, 500);
+}
+
+function changeDifficulty() {
+    $("#end").click();
+    setTimeout(function() {
+        window.location.href="/typericer/difficulty";
+    }, 500);
+}
+
+function goHome() {
+    $("#end").click();
+    setTimeout(function() {
+        window.location.href="/typericer";
+    }, 500);
 }

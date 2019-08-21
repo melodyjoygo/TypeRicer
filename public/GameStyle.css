@@ -345,7 +345,7 @@ input:focus {
     font-size: 12px;
 }
 
-#end {
+#end, #endButton {
     visibility: hidden;
 }
 /* .gradient {
