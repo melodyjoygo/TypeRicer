@@ -3,11 +3,11 @@ const mysql = require("mysql");
 class Database {
     constructor() {
         this.connection = mysql.createConnection({
-            host: '127.0.0.1',
-            user: 'root', 
+            host: 'us-cdbr-iron-east-02.cleardb.net',
+            user: 'bdb4fa03748e46', 
             port: '3306',
-            password: 'mysql2018',
-            database: 'typericer'
+            password: 'fb8acd69',
+            database: 'heroku_6ffb3b2162f0bd7'
         });
     }
     async query( sql, args ) {
