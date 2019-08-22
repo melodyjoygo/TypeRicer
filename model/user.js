@@ -32,3 +32,15 @@ exports.updateGamePlayed = function(idusers) {
 exports.getAllUser = function() {
     return database.query("SELECT * FROM users");
 }
+
+exports.getEasyGame = function(id) {
+    return database.query("SELECT count(ideasy) AS 'count' FROM easy WHERE idusers = ?", [id]);
+}
+
+exports.getMediumGame = function(id) {
+    return database.query("SELECT count(idmedium) AS 'count' FROM medium WHERE idusers = ?", [id]);
+}
+
+exports.getHardGame = function(id) {
+    return database.query("SELECT count(idhard) AS 'count' FROM hard WHERE idusers = ?", [id]);
+}

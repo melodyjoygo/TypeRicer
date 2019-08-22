@@ -29,29 +29,35 @@ function change(num) {
     $("#statsWPM").text(wpm);
     $("#statsTime").text(time);
     $("#statsAcc").text(acc);
+    $("#statsInfo").text(game);
 }
 
 var index;
-var wpm, time, acc;
-var list = [];
+var wpm, time, acc, game;
+var list = [], games = [];
 
 function changeData() {
     if(list[index + 1][0].wpm == null) {
         wpm = (0).toFixed(2);
         time = "00:00";
         acc = (0).toFixed(2) + "%";        
+        game = 0;
     } else {
         wpm = parseFloat(list[index + 1][0].wpm).toFixed(2);
         time = digits(Math.trunc(parseInt(list[index + 1][0].time)/60)) + ":" + digits(parseInt(list[index + 1][0].time) % 60);
         acc = parseFloat(list[index + 1][0].accuracy).toFixed(2) + "%";
+        game = games[index][0].count;
     }
 }
 
-function setData(data) {
+function setData(data, game) {
     index = 0;
     var temporary = data.replace(/&#39;/g, "'");
     temporary = temporary.replace(/&#34;/g, "\"");
     list = JSON.parse(temporary);
+    var temp = game.replace(/&#39;/g, "'");
+    temp = temp.replace(/&#34;/g, "\"");
+    games = JSON.parse(temp);
     changeData();
     change(0);
 }

@@ -32,16 +32,25 @@ router.get("/profile", (req, res) => {
             Promise.resolve(User.getEasy(req.cookies.username)).then(function(easy) {
                 Promise.resolve(User.getMedium(req.cookies.username)).then(function(medium) {
                     Promise.resolve(User.getHard(req.cookies.username)).then(function(hard) {
-                        var data = [];
-                        data.push(profile);
-                        data.push(easy);
-                        data.push(medium);
-                        data.push(hard);
-                        res.render('Profile', {
-                            name : profile[0].username,
-                            game : profile[0].gamesplayed,
-                            object : JSON.stringify(data)
-                        });
+                        Promise.resolve(User.getEasyGame(profile[0].idusers)).then(function(easyGame) {
+                            Promise.resolve(User.getMediumGame(profile[0].idusers)).then(function(mediumGame) {
+                                Promise.resolve(User.getHardGame(profile[0].idusers)).then(function(hardGame) {
+                                    var data = [], games = [];
+                                    data.push(profile);
+                                    data.push(easy);
+                                    data.push(medium);
+                                    data.push(hard);
+                                    games.push(easyGame);
+                                    games.push(mediumGame);
+                                    games.push(hardGame);
+                                    res.render('Profile', {
+                                        name : profile[0].username,
+                                        game : JSON.stringify(games),
+                                        object : JSON.stringify(data)
+                                    });
+                                })
+                            })  
+                        })
                     })
                 })
             })

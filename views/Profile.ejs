@@ -13,10 +13,11 @@
     <script src="/profileFunction.js"></script>
     <script>
         var data = "<%= object %>";
+        var game = "<%= game %>";
     </script>
 </head>
 
-<body onload="setData(data)">
+<body onload="setData(data, game)">
     <div class="modal" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -117,9 +118,7 @@
                 <ul id="statsList">
                     <li id="statsItem">
                         Games Played:
-                        <div id="statsInfo">
-                            <%= game %>
-                        </div>
+                        <div id="statsInfo"></div>
                     </li>
                     <li id="statsItem">
                         Average WPM:
