@@ -313,7 +313,6 @@ input:focus {
         display: inline-flex;
         flex-direction: column;
         transform: rotate(0deg);
-
     }
 
     #menuLine,
