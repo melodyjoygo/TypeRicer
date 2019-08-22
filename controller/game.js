@@ -30,7 +30,7 @@ router.get("/hard", (req, res) => {
 })
 router.post("/endGame", (req, res) => {
     if(req.session.username != 'guest') {
-        Promise.resolve(User.getUser(req.session.username)).then(function(value) {
+        Promise.resolve(User.getUser(req.session.username)).then(function(value) {            
             Game.submitData(value[0].idusers, req.body.wpm, req.body.time, req.body.acc, req.body.diff);
             User.updateGamePlayed(value[0].idusers);
         })

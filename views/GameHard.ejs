@@ -37,7 +37,7 @@
                         <br>
                         <div class="row">
                             <div class="col">
-                                <a href="/difficulty" id="logoutButton">
+                                <a href="/typericer/difficulty" id="logoutButton">
                                     <input type="button" class="form-control form-control-sm" value="Yes">
                                 </a>
                             </div>
@@ -71,15 +71,6 @@
             </div>
         </a>
 
-        <form action="/game/endGame" method="post">
-            <input type="hidden" id="diff" name="diff">
-            <input type="hidden" id="wpm" name="wpm">
-            <input type="hidden" id="acc" name="acc">
-            <input type="hidden" id="timeConsumed" name="time">
-            <input type="hidden" id="textID" name="textID">
-            <button type="submit" id="end"></button>
-        </form>
-
         <div id="showStats">
             <ul id="statsList">
                 <li id="textBox">
@@ -97,25 +88,23 @@
             </ul>
 
             <ul id="buttonList">
-                <a href="#" id="restartButton" onclick="restart()">
+                <a href="/game/hard" id="restartButton">
                     <li id="btnText">
                         Restart
                     </li>
                 </a>
 
-                <a href="#" id="nextButton" onclick="changeDifficulty()">
+                <a href="/typericer/difficulty" id="nextButton">
                     <li id="btnText">
                         Change Difficulty
                     </li>
                 </a>
 
-                <a href="#" id="homeButton" onclick="goHome()">
+                <a href="/typericer" id="homeButton">
                     <li id="btnText">
                         Home
                     </li>
                 </a>
-
-                <button href="#" id="endButton"></button>
             </ul>
         </div>
     </div>

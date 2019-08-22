@@ -73,15 +73,6 @@
             </div>
         </button>
 
-        <form action="/game/endGame" method="post">
-            <input type="hidden" id="diff" name="diff">
-            <input type="hidden" id="wpm" name="wpm">
-            <input type="hidden" id="acc" name="acc">
-            <input type="hidden" id="timeConsumed" name="time">
-            <input type="hidden" id="textID" name="textID">
-            <button type="submit" id="end"></button>
-        </form>
-
         <div id="showStats">
             <ul id="statsList">
                 <li id="textBox">
@@ -101,19 +92,19 @@
 
 
             <ul id="buttonList">
-                <a href="#" id="restartButton" onclick="restart()">
+                <a href="/game/easy" id="restartButton">
                     <li id="btnText">
                         Restart
                     </li>
                 </a>
 
-                <a href="#" id="nextButton" onclick="changeDifficulty()">
+                <a href="/typericer/difficulty" id="nextButton">
                     <li id="btnText">
                         Change Difficulty
                     </li>
                 </a>
 
-                <a href="#" id="homeButton" onclick="goHome()">
+                <a href="/typericer" id="homeButton">
                     <li id="btnText">
                         Home
                     </li>

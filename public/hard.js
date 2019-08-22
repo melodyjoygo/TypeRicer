@@ -120,11 +120,16 @@ function finish() {
     $("#accuracyStat").text(getAccuracy() + "%");
     $("#timeStat").text(digits(Math.trunc(time/60)) + ":" + digits(time % 60));
     $("#showStats").css("visibility","visible");
-    $("#wpm").val(getTime(words.length));
-    $("#acc").val(getAccuracy());
-    $("#timeConsumed").val(time);
-    $("#textID").val(list[index].id);
-    $("#diff").val(2);
+    $.ajax({
+        url: "/game/endGame",
+        method: "post",
+        data: {
+            wpm: getTime(words.length),
+            acc: getAccuracy(),
+            time: time,
+            diff: 2
+        }
+    })
 }
 
 function getTime(num) {
@@ -166,25 +171,4 @@ function randomize(num) {
 
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
-}
-
-function restart() {
-    $("#end").click();
-    setTimeout(function() {
-        window.location.href="/game/easy";
-    }, 500);
-}
-
-function changeDifficulty() {
-    $("#end").click();
-    setTimeout(function() {
-        window.location.href="/typericer/difficulty";
-    }, 500);
-}
-
-function goHome() {
-    $("#end").click();
-    setTimeout(function() {
-        window.location.href="/typericer";
-    }, 500);
 }
