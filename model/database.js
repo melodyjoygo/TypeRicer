@@ -4,10 +4,10 @@ class Database {
     constructor() {
         this.connection = mysql.createConnection({
             host: 'us-cdbr-iron-east-02.cleardb.net',
-            user: 'bdb4fa03748e46', 
+            user: 'bcedc81032a31e', 
             port: '3306',
-            password: 'fb8acd69',
-            database: 'heroku_6ffb3b2162f0bd7'
+            password: '9a923e5d',
+            database: 'heroku_1bf7b538e973671'
         });
     }
     async query(sql, args) {
