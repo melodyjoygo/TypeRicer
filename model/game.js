@@ -6,21 +6,19 @@ exports.generate = function() {
 }
 
 exports.submitData = function(idusers, wpm, time, acc, diff) {
-    if(idusers != 1) {
-        if(diff == 0) {
-            Promise.resolve(database.query("SELECT COUNT(ideasy) AS 'count' FROM easy")).then(function(easy) {
-                database.query("INSERT INTO easy (ideasy, idusers, wpm, time, accuracy) VALUES ?", [[[(easy[0].count + 1), idusers, wpm, time, acc]]]);
-            })
-        } else if(diff == 1) {
-            Promise.resolve(database.query("SELECT COUNT(idmedium) AS 'count' FROM medium")).then(function(medium) {
-                database.query("INSERT INTO medium (idmedium, idusers, wpm, time, accuracy) VALUES ?", [[[(medium[0].count + 1), idusers, wpm, time, acc]]]);
-            })
-        } else if(diff == 2){
-            Promise.resolve(database.query("SELECT COUNT(idhard) AS 'count' FROM hard")).then(function(hard) {
-                database.query("INSERT INTO hard (idhard, idusers, wpm, time, accuracy) VALUES ?", [[[(hard[0].count + 1), idusers, wpm, time, acc]]]);
-            })
-        }        
-    }
+    if(diff == 0) {
+        Promise.resolve(database.query("SELECT COUNT(ideasy) AS 'count' FROM easy")).then(function(easy) {
+            database.query("INSERT INTO easy (ideasy, idusers, wpm, time, accuracy) VALUES ?", [[[(easy[0].count + 1), idusers, wpm, time, acc]]]);
+        })
+    } else if(diff == 1) {
+        Promise.resolve(database.query("SELECT COUNT(idmedium) AS 'count' FROM medium")).then(function(medium) {
+            database.query("INSERT INTO medium (idmedium, idusers, wpm, time, accuracy) VALUES ?", [[[(medium[0].count + 1), idusers, wpm, time, acc]]]);
+        })
+    } else if(diff == 2){
+        Promise.resolve(database.query("SELECT COUNT(idhard) AS 'count' FROM hard")).then(function(hard) {
+            database.query("INSERT INTO hard (idhard, idusers, wpm, time, accuracy) VALUES ?", [[[(hard[0].count + 1), idusers, wpm, time, acc]]]);
+        })
+    }     
 }
 
 exports.getEasy = function() {
