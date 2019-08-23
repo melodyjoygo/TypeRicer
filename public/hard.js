@@ -128,6 +128,9 @@ function finish() {
             acc: getAccuracy(),
             time: time,
             diff: 2
+        },
+        success: function(response) {
+            console.log(response);
         }
     })
 }
