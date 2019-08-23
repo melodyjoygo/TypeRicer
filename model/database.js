@@ -10,7 +10,7 @@ class Database {
             database: 'heroku_6ffb3b2162f0bd7'
         });
     }
-    async query( sql, args ) {
+    async query(sql, args) {
         try {
             return await new Promise((resolve, reject) => {
                 this.connection.query(sql, args, (err, rows) => {
@@ -19,18 +19,19 @@ class Database {
                     resolve(rows);
                 });
             });
-        }
-        catch (error) { }
+        } catch (error) { }
     }
-    close() {
-        return new Promise((resolve, reject ) => {
-            this.connection.end(err => {
-                if (err)
-                    return reject(err);
-
-                resolve();
+    async close() {
+        try {
+            return await new Promise((resolve, reject ) => {
+                this.connection.end(err => {
+                    if (err)
+                        return reject(err);
+    
+                    resolve();
+                });
             });
-        });
+        } catch (error) { }
     }
 }
 
